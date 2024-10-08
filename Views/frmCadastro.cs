@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using Mysqlx.Crud;
+using ProjetoAgenda.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -60,14 +61,9 @@ namespace ProjetoAgenda
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            //string contendo as infomações para a conexão
-            string stringConexao = "Server=localhost;Database=dbAgenda;User ID=root;Password=root;";
-            
-            //criando a conexão
-            MySqlConnection conexao = new MySqlConnection(stringConexao);
-
-            //abrindo conexão
-            conexao.Open();
+            MySqlConnection conexao = ConexaoDB.CriarConexao();
+             //abrindo conexão
+             conexao.Open();
 
             //criando o comando sql para inserir o usuario
             string sql = $"INSERT INTO tb_usuarios (nome, usuario, senha) VALUES (@nome, @usuario, @senha)";
