@@ -70,10 +70,14 @@ namespace ProjetoAgenda
             conexao.Open();
 
             //criando o comando sql para inserir o usuario
-            string sql = $"INSERT INTO tb_usuarios (nome, usuario, senha) VALUES ('{txtNome.Text}', '{txtUsuario.Text}', '{txtSenha.Text}')";
+            string sql = $"INSERT INTO tb_usuarios (nome, usuario, senha) VALUES (@nome, @usuario, @senha)";
 
             //criando o comando
             MySqlCommand comando = new MySqlCommand(sql, conexao);
+
+            comando.Parameters.AddWithValue("@nome", txtNome.Text);
+            comando.Parameters.AddWithValue("@usuario", txtUsuario.Text);
+            comando.Parameters.AddWithValue("@senha", txtSenha.Text);
 
             //executando a instrução sql no banco de dados 
             comando.ExecuteNonQuery();
