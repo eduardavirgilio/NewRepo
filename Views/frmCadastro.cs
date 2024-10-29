@@ -62,8 +62,8 @@ namespace ProjetoAgenda
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             MySqlConnection conexao = ConexaoDB.CriarConexao();
-             //abrindo conexão
-             conexao.Open();
+            //abrindo conexão
+            conexao.Open();
 
             //criando o comando sql para inserir o usuario
             string sql = $"INSERT INTO tb_usuarios (nome, usuario, senha) VALUES (@nome, @usuario, @senha)";
@@ -83,6 +83,11 @@ namespace ProjetoAgenda
 
             MessageBox.Show("Cadastro efetuado com sucesso! \n Você já pode fazer o login");
 
+            this.Close();
+        }
+
+        private void btnEntrar_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }
