@@ -1,4 +1,8 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using Mysqlx.Crud;
+using ProjetoAgenda.Controller;
+using ProjetoAgenda.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -43,7 +47,7 @@ namespace ProjetoAgenda
 
         private void txtTelefone_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void txtSenha_TextChanged(object sender, EventArgs e)
@@ -54,6 +58,35 @@ namespace ProjetoAgenda
         private void txtRepitaSenha_TextChanged(object sender, EventArgs e)
         {
             habilitarBotaoCadastrar();
+        }
+
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            //pegando os dados do formulario
+            string nome = txtNome.Text;
+            string usuario = txtUsuario.Text;
+            string senha = txtSenha.Text;
+
+            //chamando a classe
+            UsuarioController controleUsuario = new UsuarioController();
+
+            //inserindo o usuario
+            bool resultado = controleUsuario.AddUsuario(nome, usuario, senha);
+
+            if (resultado)
+            {
+                MessageBox.Show("Cadastro efetuado com sucesso!");
+            }
+
+            else
+            {
+                MessageBox.Show("Não foi possivel cadastrar o usuário.");
+            }
+        }
+
+        private void btnEntrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 
