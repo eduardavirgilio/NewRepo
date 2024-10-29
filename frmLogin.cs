@@ -36,5 +36,10 @@ namespace ProjetoAgenda
         {
             habilitarBotaoLogin();
         }
+
+        private void btnLogar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

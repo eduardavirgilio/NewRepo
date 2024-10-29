@@ -43,7 +43,7 @@ namespace ProjetoAgenda
 
         private void txtTelefone_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void txtSenha_TextChanged(object sender, EventArgs e)
@@ -54,6 +54,11 @@ namespace ProjetoAgenda
         private void txtRepitaSenha_TextChanged(object sender, EventArgs e)
         {
             habilitarBotaoCadastrar();
+        }
+
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
