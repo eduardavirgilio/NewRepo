@@ -66,7 +66,7 @@ namespace ProjetoAgenda
             conexao.Open();
 
             //criando o comando sql para inserir o usuario
-            string sql = $"INSERT INTO tb_usuarios (nome, usuario, senha) VALUES (@nome, @usuario, @senha)";
+            string sql = $"INSERT INTO tbusuarios (nome, usuario, senha) VALUES (@nome, @usuario, @senha)";
 
             //criando o comando
             MySqlCommand comando = new MySqlCommand(sql, conexao);
