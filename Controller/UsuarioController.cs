@@ -10,6 +10,7 @@ namespace ProjetoAgenda.Controller
 {
     internal class UsuarioController
     {
+        // add usuario eh um metodo
         public bool AddUsuario(string nome, string usuario, string senha)
         {
             try
@@ -32,7 +33,7 @@ namespace ProjetoAgenda.Controller
                 comando.Parameters.AddWithValue("@usuario", usuario);
                 comando.Parameters.AddWithValue("@senha", senha);
 
-                //executando no banco de dados
+                //executando no banco de dados - o execute etc retorna a quantidade de linhas afetadas
                 int linhasAfetadas = comando.ExecuteNonQuery();
 
                 //encerrando a conexao
@@ -54,6 +55,47 @@ namespace ProjetoAgenda.Controller
             {
                 //aparece quando da erro, a segunda aspas eh o titulo, o buttons cria um botão e o icon cria um icone
                 MessageBox.Show($"Erro ao cadastrar: {erro.Message}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+
+        }
+
+        public bool ValidarLogin(string usuario, string senha)
+        {
+            try
+            {
+                //conecta no banco de dados
+                MySqlConnection conexao = ConexaoDB.CriarConexao();
+
+                string sql = @"select * from tbusuarios 
+                         where usuario = @usuario
+                         and binary senha = @senha;";
+
+                conexao.Open();
+
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
+
+                comando.Parameters.AddWithValue("@usuario", usuario);
+                comando.Parameters.AddWithValue("@senha", senha);
+
+                MySqlDataReader resultado = comando.ExecuteReader();
+
+                if (resultado.Read())
+                {
+                    conexao.Close();
+                    return true;
+                }
+
+                else
+                {
+                    conexao.Close();
+                    return false;
+                }
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show($"Erro ao verificar o usuario.");
                 return false;
             }
 
