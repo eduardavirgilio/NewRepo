@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadastro));
             lblTexto = new Label();
             txtNome = new TextBox();
             label1 = new Label();
@@ -43,132 +44,74 @@
             // 
             // lblTexto
             // 
-            lblTexto.AutoSize = true;
-            lblTexto.Font = new Font("Bell MT", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTexto.Location = new Point(24, 31);
+            resources.ApplyResources(lblTexto, "lblTexto");
             lblTexto.Name = "lblTexto";
-            lblTexto.Size = new Size(114, 42);
-            lblTexto.TabIndex = 1;
-            lblTexto.Text = "Nome";
             // 
             // txtNome
             // 
-            txtNome.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtNome.Location = new Point(24, 80);
-            txtNome.Margin = new Padding(3, 4, 3, 4);
-            txtNome.Multiline = true;
+            resources.ApplyResources(txtNome, "txtNome");
             txtNome.Name = "txtNome";
-            txtNome.Size = new Size(465, 65);
-            txtNome.TabIndex = 2;
             txtNome.TextChanged += textBox1_TextChanged;
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Bell MT", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(24, 177);
+            resources.ApplyResources(label1, "label1");
             label1.Name = "label1";
-            label1.Size = new Size(145, 42);
-            label1.TabIndex = 3;
-            label1.Text = "Usuário";
             // 
             // txtUsuario
             // 
-            txtUsuario.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtUsuario.Location = new Point(24, 227);
-            txtUsuario.Margin = new Padding(3, 4, 3, 4);
-            txtUsuario.Multiline = true;
+            resources.ApplyResources(txtUsuario, "txtUsuario");
             txtUsuario.Name = "txtUsuario";
-            txtUsuario.Size = new Size(465, 65);
-            txtUsuario.TabIndex = 4;
             txtUsuario.TextChanged += txtUsuario_TextChanged;
             // 
             // label3
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Bell MT", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(24, 328);
+            resources.ApplyResources(label3, "label3");
             label3.Name = "label3";
-            label3.Size = new Size(114, 42);
-            label3.TabIndex = 7;
-            label3.Text = "Senha";
             // 
             // txtSenha
             // 
-            txtSenha.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtSenha.Location = new Point(24, 395);
-            txtSenha.Margin = new Padding(3, 4, 3, 4);
-            txtSenha.Multiline = true;
+            resources.ApplyResources(txtSenha, "txtSenha");
             txtSenha.Name = "txtSenha";
-            txtSenha.PasswordChar = '*';
-            txtSenha.Size = new Size(465, 65);
-            txtSenha.TabIndex = 8;
             txtSenha.TextChanged += txtSenha_TextChanged;
             // 
             // label4
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Bell MT", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(24, 497);
+            resources.ApplyResources(label4, "label4");
             label4.Name = "label4";
-            label4.Size = new Size(254, 42);
-            label4.TabIndex = 9;
-            label4.Text = "Repita a senha";
             // 
             // txtRepitaSenha
             // 
-            txtRepitaSenha.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtRepitaSenha.Location = new Point(24, 561);
-            txtRepitaSenha.Margin = new Padding(3, 4, 3, 4);
-            txtRepitaSenha.Multiline = true;
+            resources.ApplyResources(txtRepitaSenha, "txtRepitaSenha");
             txtRepitaSenha.Name = "txtRepitaSenha";
-            txtRepitaSenha.PasswordChar = '*';
-            txtRepitaSenha.Size = new Size(465, 65);
-            txtRepitaSenha.TabIndex = 10;
             txtRepitaSenha.TextChanged += txtRepitaSenha_TextChanged;
             // 
             // label5
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Bell MT", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(24, 748);
+            resources.ApplyResources(label5, "label5");
             label5.Name = "label5";
-            label5.Size = new Size(0, 42);
-            label5.TabIndex = 11;
             // 
             // btnEntrar
             // 
+            resources.ApplyResources(btnEntrar, "btnEntrar");
             btnEntrar.BackColor = Color.Pink;
-            btnEntrar.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEntrar.Location = new Point(267, 681);
-            btnEntrar.Margin = new Padding(3, 4, 3, 4);
             btnEntrar.Name = "btnEntrar";
-            btnEntrar.Size = new Size(222, 93);
-            btnEntrar.TabIndex = 12;
-            btnEntrar.Text = "CANCELAR";
             btnEntrar.UseVisualStyleBackColor = false;
             btnEntrar.Click += btnEntrar_Click;
             // 
             // btnCadastrar
             // 
+            resources.ApplyResources(btnCadastrar, "btnCadastrar");
             btnCadastrar.BackColor = Color.Pink;
-            btnCadastrar.Enabled = false;
-            btnCadastrar.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCadastrar.Location = new Point(24, 681);
-            btnCadastrar.Margin = new Padding(3, 4, 3, 4);
             btnCadastrar.Name = "btnCadastrar";
-            btnCadastrar.Size = new Size(222, 93);
-            btnCadastrar.TabIndex = 13;
-            btnCadastrar.Text = "CADASTRAR";
             btnCadastrar.UseVisualStyleBackColor = false;
             btnCadastrar.Click += btnCadastrar_Click;
             // 
             // frmCadastro
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LavenderBlush;
-            ClientSize = new Size(539, 811);
             Controls.Add(btnCadastrar);
             Controls.Add(btnEntrar);
             Controls.Add(label5);
@@ -180,9 +123,7 @@
             Controls.Add(label1);
             Controls.Add(txtNome);
             Controls.Add(lblTexto);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "frmCadastro";
-            Text = "frmCadastro";
             ResumeLayout(false);
             PerformLayout();
         }

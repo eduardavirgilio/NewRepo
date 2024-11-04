@@ -114,6 +114,7 @@
             Controls.Add(txtUsuario);
             Controls.Add(lblTexto);
             Name = "frmLogin";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "login";
             ResumeLayout(false);
             PerformLayout();
