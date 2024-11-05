@@ -1,3 +1,5 @@
+using ProjetoAgenda.Views;
+
 namespace ProjetoAgenda
 {
     public partial class frmLogin : Form
@@ -35,6 +37,12 @@ namespace ProjetoAgenda
         private void txtSenha_TextChanged(object sender, EventArgs e)
         {
             habilitarBotaoLogin();
+        }
+
+        private void btnLogar_Click(object sender, EventArgs e)
+        {
+            frmPrincipal formularioPrincipal = new frmPrincipal();
+            formularioPrincipal.ShowDialog();
         }
     }
 }
