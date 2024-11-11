@@ -41,8 +41,12 @@ namespace ProjetoAgenda
 
         private void btnLogar_Click(object sender, EventArgs e)
         {
+            this.Hide();
+
             frmPrincipal formularioPrincipal = new frmPrincipal();
             formularioPrincipal.ShowDialog();
+
+          
         }
     }
 }

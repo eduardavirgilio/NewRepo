@@ -32,6 +32,9 @@
             txtNome = new TextBox();
             btnCadastrar = new Button();
             button1 = new Button();
+            dgvCategoria = new DataGridView();
+            button2 = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgvCategoria).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -49,6 +52,7 @@
             // 
             txtNome.Location = new Point(11, 57);
             txtNome.Margin = new Padding(2);
+            txtNome.MaxLength = 40;
             txtNome.Multiline = true;
             txtNome.Name = "txtNome";
             txtNome.Size = new Size(374, 34);
@@ -79,19 +83,43 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
+            // dgvCategoria
+            // 
+            dgvCategoria.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCategoria.Location = new Point(22, 184);
+            dgvCategoria.Name = "dgvCategoria";
+            dgvCategoria.Size = new Size(349, 233);
+            dgvCategoria.TabIndex = 4;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.MistyRose;
+            button2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button2.Location = new Point(136, 147);
+            button2.Name = "button2";
+            button2.Size = new Size(103, 31);
+            button2.TabIndex = 5;
+            button2.Text = "botao";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
             // frmCategorias
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LavenderBlush;
-            ClientSize = new Size(407, 159);
+            ClientSize = new Size(405, 444);
+            Controls.Add(button2);
+            Controls.Add(dgvCategoria);
             Controls.Add(button1);
             Controls.Add(btnCadastrar);
             Controls.Add(txtNome);
             Controls.Add(label1);
             Margin = new Padding(2);
             Name = "frmCategorias";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "frmCategorias";
+            ((System.ComponentModel.ISupportInitialize)dgvCategoria).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -102,5 +130,7 @@
         private TextBox txtNome;
         private Button btnCadastrar;
         private Button button1;
+        private DataGridView dgvCategoria;
+        private Button button2;
     }
 }

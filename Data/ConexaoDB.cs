@@ -20,5 +20,17 @@ namespace ProjetoAgenda.Data
             return conexao;
 
         }
+
+        internal class CriarConexao
+        {
+            public CriarConexao()
+            {
+            }
+
+            public static implicit operator MySqlConnection(CriarConexao v)
+            {
+                throw new NotImplementedException();
+            }
+        }
     }
 }

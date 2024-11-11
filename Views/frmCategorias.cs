@@ -20,7 +20,7 @@ namespace ProjetoAgenda.Views
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -46,8 +46,18 @@ namespace ProjetoAgenda.Views
 
             else
             {
-                MessageBox.Show("Não foi possivel cadastrar o usuário.");
+                MessageBox.Show("Não foi possivel cadastrar a categoria.");
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CategoriaController controleCategoria = new CategoriaController();
+
+            DataTable tabela = controleCategoria.GetCategorias();
+
+            dgvCategoria.DataSource = tabela;
+
         }
     }
 }

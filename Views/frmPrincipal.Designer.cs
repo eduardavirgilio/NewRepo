@@ -60,7 +60,7 @@
             // sairToolStripMenuItem
             // 
             sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            sairToolStripMenuItem.Size = new Size(180, 22);
+            sairToolStripMenuItem.Size = new Size(93, 22);
             sairToolStripMenuItem.Text = "&Sair";
             sairToolStripMenuItem.Click += sairToolStripMenuItem_Click;
             // 
@@ -102,6 +102,7 @@
             MainMenuStrip = menuStrip1;
             Margin = new Padding(2);
             Name = "frmPrincipal";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Agenda telefonica";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();

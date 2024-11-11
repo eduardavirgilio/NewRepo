@@ -13,3 +13,6 @@ create table tbcategorias(
 	categorias VARCHAR(40) NOT NULL,
 	cod_categoria INT AUTO_INCREMENT primary key
     );
+
+select cod_categoria AS 'Código', categorias AS 'Categoria'
+from tbcategorias;
