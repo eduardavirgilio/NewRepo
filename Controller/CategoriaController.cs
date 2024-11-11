@@ -18,7 +18,7 @@ namespace ProjetoAgenda.Controller
             
             try
             {
-               conexao = new ConexaoDB.CriarConexao();
+               conexao = ConexaoDB.CriarConexao();
 
                 //oq ele vai executar do sql
                 string sql = "INSERT INTO tbcategorias (categorias) VALUES (@nome);";
