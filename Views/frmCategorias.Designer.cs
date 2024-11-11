@@ -30,35 +30,66 @@
         {
             label1 = new Label();
             txtNome = new TextBox();
+            btnCadastrar = new Button();
+            button1 = new Button();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(12, 9);
+            label1.Location = new Point(8, 5);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(440, 38);
+            label1.Size = new Size(295, 25);
             label1.TabIndex = 0;
             label1.Text = "DIGITE O NOME DA CATEGORIA";
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(12, 84);
+            txtNome.Location = new Point(11, 57);
+            txtNome.Margin = new Padding(2);
             txtNome.Multiline = true;
             txtNome.Name = "txtNome";
-            txtNome.Size = new Size(532, 54);
+            txtNome.Size = new Size(374, 34);
             txtNome.TabIndex = 1;
             txtNome.TextChanged += textBox1_TextChanged;
             // 
+            // btnCadastrar
+            // 
+            btnCadastrar.BackColor = Color.Lavender;
+            btnCadastrar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCadastrar.Location = new Point(248, 116);
+            btnCadastrar.Name = "btnCadastrar";
+            btnCadastrar.Size = new Size(137, 31);
+            btnCadastrar.TabIndex = 2;
+            btnCadastrar.Text = "cadastrar";
+            btnCadastrar.UseVisualStyleBackColor = false;
+            btnCadastrar.Click += btnCadastrar_Click;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.MistyRose;
+            button1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.Location = new Point(12, 116);
+            button1.Name = "button1";
+            button1.Size = new Size(103, 31);
+            button1.TabIndex = 3;
+            button1.Text = "fechar";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
             // frmCategorias
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LavenderBlush;
-            ClientSize = new Size(582, 188);
+            ClientSize = new Size(407, 159);
+            Controls.Add(button1);
+            Controls.Add(btnCadastrar);
             Controls.Add(txtNome);
             Controls.Add(label1);
+            Margin = new Padding(2);
             Name = "frmCategorias";
             Text = "frmCategorias";
             ResumeLayout(false);
@@ -69,5 +100,7 @@
 
         private Label label1;
         private TextBox txtNome;
+        private Button btnCadastrar;
+        private Button button1;
     }
 }

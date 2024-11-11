@@ -20,11 +20,21 @@ namespace ProjetoAgenda.Views
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+           
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
             //pegando os dados do formulario
             string nome = txtNome.Text;
 
             //chamando a classe
-            UsuarioController criaCategoria = new CategoriaController();
+            CategoriaController criaCategoria = new CategoriaController();
 
             //inserindo o usuario
             bool resultado = criaCategoria.AddCategorias(nome);

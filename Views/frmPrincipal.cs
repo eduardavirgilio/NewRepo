@@ -27,5 +27,10 @@ namespace ProjetoAgenda.Views
             frmCategorias formularioPrincipal = new frmCategorias();
             formularioPrincipal.ShowDialog();
         }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {      
+            Application.Exit();
+        }
     }
 }
