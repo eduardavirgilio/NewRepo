@@ -41,7 +41,7 @@ namespace ProjetoAgenda.Views
 
             if (resultado)
             {
-                MessageBox.Show("Cadastro efetuado com sucesso!");
+                MessageBox.Show("Categoria cadastrada com sucesso!");
             }
 
             else
@@ -60,7 +60,7 @@ namespace ProjetoAgenda.Views
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+
 
         }
 
@@ -98,7 +98,19 @@ namespace ProjetoAgenda.Views
             dgvCategoria.DataSource = tabela;
         }
 
+        private void dgvCategoria_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
+
+        private void frmCategorias_Load(object sender, EventArgs e)
+        {
+            CategoriaController controleCategoria = new CategoriaController();
+
+            DataTable tabela = controleCategoria.GetCategorias();
+
+            dgvCategoria.DataSource = tabela;
+        }
+    }
 }
 

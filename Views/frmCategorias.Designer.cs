@@ -91,6 +91,7 @@
             dgvCategoria.Name = "dgvCategoria";
             dgvCategoria.Size = new Size(347, 233);
             dgvCategoria.TabIndex = 4;
+            dgvCategoria.CellContentClick += dgvCategoria_CellContentClick;
             // 
             // btnExcluir
             // 
@@ -120,7 +121,7 @@
             Name = "frmCategorias";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmCategorias";
-            Load += btnCadastrar_Click;
+            Load += frmCategorias_Load;
             ((System.ComponentModel.ISupportInitialize)dgvCategoria).EndInit();
             ResumeLayout(false);
             PerformLayout();
