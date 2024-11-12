@@ -72,5 +72,32 @@ namespace ProjetoAgenda.Views
         {
             this.Close();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //pegando os dados do formulario
+            string senha = txtAlterarSenha.Text;
+
+            //para excluir a linha
+            string usuarios = Convert.ToString(dgvUsuario.SelectedRows[0].Cells[0].Value);
+
+            //chamando a classe
+            UsuarioController alterarSenha = new UsuarioController();
+
+            //inserindo o usuario
+            bool resultado = alterarSenha.AlterarSenha(senha, usuarios);
+
+            if (resultado)
+            {
+                MessageBox.Show("Senha alterada com sucesso!");
+            }
+
+            else
+            {
+                MessageBox.Show("Não foi possivel alterar a senha.");
+            }
+
+            AtualizaDataGrid();
+        }
     }
 }
