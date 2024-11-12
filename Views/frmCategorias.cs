@@ -18,6 +18,17 @@ namespace ProjetoAgenda.Views
             InitializeComponent();
         }
 
+        private void AtualizaDataGrid()
+        {
+            //atualizar a tabela
+
+            CategoriaController controleCategoria = new CategoriaController();
+
+            DataTable tabela = controleCategoria.GetCategorias();
+
+            dgvCategoria.DataSource = tabela;
+        }
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -49,13 +60,8 @@ namespace ProjetoAgenda.Views
                 MessageBox.Show("Não foi possivel cadastrar a categoria.");
             }
 
-            //atualizar a tabela
+            AtualizaDataGrid();
 
-            CategoriaController controleCategoria = new CategoriaController();
-
-            DataTable tabela = controleCategoria.GetCategorias();
-
-            dgvCategoria.DataSource = tabela;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -71,7 +77,10 @@ namespace ProjetoAgenda.Views
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            string cod_categoria = txtNome.Text;
+            //string cod_categoria = txtNome.Text;
+
+            //para excluir a linha
+            int cod_categoria = Convert.ToInt32(dgvCategoria.SelectedRows[0].Cells[0].Value);
 
             //chamando a classe
             CategoriaController criaCategoria = new CategoriaController();
@@ -91,11 +100,7 @@ namespace ProjetoAgenda.Views
 
             //atualizar a tabela
 
-            CategoriaController controleCategoria = new CategoriaController();
-
-            DataTable tabela = controleCategoria.GetCategorias();
-
-            dgvCategoria.DataSource = tabela;
+            AtualizaDataGrid();
         }
 
         private void dgvCategoria_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -105,11 +110,7 @@ namespace ProjetoAgenda.Views
 
         private void frmCategorias_Load(object sender, EventArgs e)
         {
-            CategoriaController controleCategoria = new CategoriaController();
-
-            DataTable tabela = controleCategoria.GetCategorias();
-
-            dgvCategoria.DataSource = tabela;
+            AtualizaDataGrid();
         }
     }
 }

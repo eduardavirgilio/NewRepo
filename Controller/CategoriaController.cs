@@ -102,7 +102,7 @@ namespace ProjetoAgenda.Controller
 
         }
 
-        public bool ExcluirCategoria(string cod_categoria)
+        public bool ExcluirCategoria(int cod_categoria)
         {
             MySqlConnection conexao = null;
             try {

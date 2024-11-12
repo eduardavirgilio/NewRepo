@@ -86,9 +86,11 @@
             // 
             // dgvCategoria
             // 
+            dgvCategoria.BackgroundColor = Color.Pink;
             dgvCategoria.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCategoria.Location = new Point(23, 170);
             dgvCategoria.Name = "dgvCategoria";
+            dgvCategoria.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvCategoria.Size = new Size(347, 233);
             dgvCategoria.TabIndex = 4;
             dgvCategoria.CellContentClick += dgvCategoria_CellContentClick;
