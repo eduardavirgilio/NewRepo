@@ -33,20 +33,21 @@
             btnCadastrar = new Button();
             button1 = new Button();
             dgvCategoria = new DataGridView();
-            button2 = new Button();
+            btnExcluir = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvCategoria).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(8, 5);
+            label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(4, 28);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(295, 25);
+            label1.Size = new Size(390, 17);
             label1.TabIndex = 0;
-            label1.Text = "DIGITE O NOME DA CATEGORIA";
+            label1.Text = "DIGITE O NOME DA CATEGORIA OU O CODIGO PARA EXCLUIR";
+            label1.Click += label1_Click;
             // 
             // txtNome
             // 
@@ -75,7 +76,7 @@
             // 
             button1.BackColor = Color.MistyRose;
             button1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(12, 116);
+            button1.Location = new Point(282, 437);
             button1.Name = "button1";
             button1.Size = new Size(103, 31);
             button1.TabIndex = 3;
@@ -86,30 +87,30 @@
             // dgvCategoria
             // 
             dgvCategoria.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCategoria.Location = new Point(22, 184);
+            dgvCategoria.Location = new Point(23, 170);
             dgvCategoria.Name = "dgvCategoria";
-            dgvCategoria.Size = new Size(349, 233);
+            dgvCategoria.Size = new Size(347, 233);
             dgvCategoria.TabIndex = 4;
             // 
-            // button2
+            // btnExcluir
             // 
-            button2.BackColor = Color.MistyRose;
-            button2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.Location = new Point(136, 147);
-            button2.Name = "button2";
-            button2.Size = new Size(103, 31);
-            button2.TabIndex = 5;
-            button2.Text = "botao";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            btnExcluir.BackColor = Color.White;
+            btnExcluir.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnExcluir.Location = new Point(23, 116);
+            btnExcluir.Name = "btnExcluir";
+            btnExcluir.Size = new Size(103, 31);
+            btnExcluir.TabIndex = 6;
+            btnExcluir.Text = "excluir";
+            btnExcluir.UseVisualStyleBackColor = false;
+            btnExcluir.Click += btnExcluir_Click;
             // 
             // frmCategorias
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LavenderBlush;
-            ClientSize = new Size(405, 444);
-            Controls.Add(button2);
+            ClientSize = new Size(405, 480);
+            Controls.Add(btnExcluir);
             Controls.Add(dgvCategoria);
             Controls.Add(button1);
             Controls.Add(btnCadastrar);
@@ -119,6 +120,7 @@
             Name = "frmCategorias";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmCategorias";
+            Load += btnCadastrar_Click;
             ((System.ComponentModel.ISupportInitialize)dgvCategoria).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -131,6 +133,6 @@
         private Button btnCadastrar;
         private Button button1;
         private DataGridView dgvCategoria;
-        private Button button2;
+        private Button btnExcluir;
     }
 }

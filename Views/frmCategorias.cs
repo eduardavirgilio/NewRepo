@@ -48,16 +48,57 @@ namespace ProjetoAgenda.Views
             {
                 MessageBox.Show("Não foi possivel cadastrar a categoria.");
             }
-        }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
+            //atualizar a tabela
+
             CategoriaController controleCategoria = new CategoriaController();
 
             DataTable tabela = controleCategoria.GetCategorias();
 
             dgvCategoria.DataSource = tabela;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
 
         }
-    }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            string cod_categoria = txtNome.Text;
+
+            //chamando a classe
+            CategoriaController criaCategoria = new CategoriaController();
+
+            //inserindo o usuario
+            bool resultado = criaCategoria.ExcluirCategoria(cod_categoria);
+
+            if (resultado)
+            {
+                MessageBox.Show("Categoria excluida com sucesso!");
+            }
+
+            else
+            {
+                MessageBox.Show("Não foi possivel excluir a categoria.");
+            }
+
+            //atualizar a tabela
+
+            CategoriaController controleCategoria = new CategoriaController();
+
+            DataTable tabela = controleCategoria.GetCategorias();
+
+            dgvCategoria.DataSource = tabela;
+        }
+
+
+        }
 }
+
