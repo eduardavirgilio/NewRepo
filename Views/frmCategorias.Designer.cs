@@ -40,18 +40,18 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(4, 28);
+            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(11, 19);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(390, 17);
+            label1.Size = new Size(331, 30);
             label1.TabIndex = 0;
-            label1.Text = "DIGITE O NOME DA CATEGORIA OU O CODIGO PARA EXCLUIR";
+            label1.Text = "DIGITE O NOME DA CATEGORIA";
             label1.Click += label1_Click;
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(11, 57);
+            txtNome.Location = new Point(11, 60);
             txtNome.Margin = new Padding(2);
             txtNome.MaxLength = 40;
             txtNome.Multiline = true;

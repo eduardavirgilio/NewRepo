@@ -29,8 +29,14 @@ namespace ProjetoAgenda.Views
         }
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
-        {      
+        {
             Application.Exit();
+        }
+
+        private void usuáriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUsuarios formularioUsuarios = new frmUsuarios();
+            formularioUsuarios.ShowDialog();
         }
     }
 }

@@ -76,21 +76,22 @@
             // 
             cadastrarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { categoriasToolStripMenuItem, usuáriosToolStripMenuItem });
             cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
-            cadastrarToolStripMenuItem.Size = new Size(124, 22);
+            cadastrarToolStripMenuItem.Size = new Size(180, 22);
             cadastrarToolStripMenuItem.Text = "Cadastrar";
             // 
             // categoriasToolStripMenuItem
             // 
             categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-            categoriasToolStripMenuItem.Size = new Size(130, 22);
+            categoriasToolStripMenuItem.Size = new Size(180, 22);
             categoriasToolStripMenuItem.Text = "Categorias";
             categoriasToolStripMenuItem.Click += categoriasToolStripMenuItem_Click;
             // 
             // usuáriosToolStripMenuItem
             // 
             usuáriosToolStripMenuItem.Name = "usuáriosToolStripMenuItem";
-            usuáriosToolStripMenuItem.Size = new Size(130, 22);
+            usuáriosToolStripMenuItem.Size = new Size(180, 22);
             usuáriosToolStripMenuItem.Text = "Usuários";
+            usuáriosToolStripMenuItem.Click += usuáriosToolStripMenuItem_Click;
             // 
             // frmPrincipal
             // 
