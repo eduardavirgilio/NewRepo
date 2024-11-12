@@ -230,7 +230,7 @@ namespace ProjetoAgenda.Controller
             catch (Exception erro)
             {
                 //aparece quando da erro, a segunda aspas eh o titulo, o buttons cria um botão e o icon cria um icone
-                MessageBox.Show($"Erro ao alterar senha: {erro.Message}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show($"Erro ao alterar senha : {erro.Message}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
             finally
