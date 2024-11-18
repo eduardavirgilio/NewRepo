@@ -21,7 +21,7 @@ namespace ProjetoAgenda.Controller
 
                 //oq ele vai executar do sql
                 string sql = $@"CREATE USER '{usuario}'@'%' IDENTIFIED BY '{senha}';
-                             GRANT select, insert, delete, update on *.* to '{usuario}'@'%';
+                             GRANT select, insert, delete, update on dbagenda.* to '{usuario}'@'%';
                              INSERT INTO tbusuarios (nome, usuario, senha) VALUES (@nome, @usuario, @senha);";
 
                 //oq ele vai executar do sql
