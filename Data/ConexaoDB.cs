@@ -9,7 +9,9 @@ namespace ProjetoAgenda.Data
 {
     static public class ConexaoDB
     {
+
         static public MySqlConnection CriarConexao()
+
         {
             //string contendo as infomações para a conexão
             string stringConexao = "Server=localhost;Database=dbagenda;User ID=root;Password=root;";
@@ -21,7 +23,13 @@ namespace ProjetoAgenda.Data
 
         }
 
-     
-        
+        static public MySqlConnection CriarConexao(string usuario, string senha)
+        {
+            string stringConexao = $"Server=localhost;Database=dbagenda;User ID={usuario};Password={senha};";
+
+            MySqlConnection conexao = new MySqlConnection(stringConexao);
+
+            return conexao;
+        }
     }
 }

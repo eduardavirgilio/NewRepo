@@ -95,6 +95,7 @@
             gbSenha.TabIndex = 10;
             gbSenha.TabStop = false;
             gbSenha.Text = "Alterar senha";
+            gbSenha.Enter += gbSenha_Enter;
             // 
             // btnAlterar
             // 

@@ -104,5 +104,10 @@ namespace ProjetoAgenda.Views
         {
 
         }
+
+        private void gbSenha_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
