@@ -20,8 +20,9 @@ namespace ProjetoAgenda.Controller
                 MySqlConnection conexao = ConexaoDB.CriarConexao();
 
                 //oq ele vai executar do sql
-                string sql = $"INSERT INTO tbusuarios (nome, usuario, senha) VALUES (@nome, @usuario, @senha); " +
-                             $"CREATE USER '{usuario}'@'%' IDENTIFIED BY '{senha}';";
+                string sql = $@"CREATE USER '{usuario}'@'%' IDENTIFIED BY '{senha}';
+                             GRANT select, insert, delete, update on *.* to '{usuario}'@'%';
+                             INSERT INTO tbusuarios (nome, usuario, senha) VALUES (@nome, @usuario, @senha);";
 
                 //oq ele vai executar do sql
                 
