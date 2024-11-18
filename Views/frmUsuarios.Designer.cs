@@ -33,8 +33,8 @@
             btnExcluir = new Button();
             button1 = new Button();
             gbSenha = new GroupBox();
-            txtAlterarSenha = new TextBox();
             btnAlterar = new Button();
+            txtAlterarSenha = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvUsuario).BeginInit();
             gbSenha.SuspendLayout();
             SuspendLayout();
@@ -96,14 +96,6 @@
             gbSenha.TabStop = false;
             gbSenha.Text = "Alterar senha";
             // 
-            // txtAlterarSenha
-            // 
-            txtAlterarSenha.Location = new Point(15, 27);
-            txtAlterarSenha.Multiline = true;
-            txtAlterarSenha.Name = "txtAlterarSenha";
-            txtAlterarSenha.Size = new Size(331, 36);
-            txtAlterarSenha.TabIndex = 0;
-            // 
             // btnAlterar
             // 
             btnAlterar.BackColor = Color.White;
@@ -115,6 +107,15 @@
             btnAlterar.Text = "Alterar senha";
             btnAlterar.UseVisualStyleBackColor = false;
             btnAlterar.Click += button2_Click;
+            // 
+            // txtAlterarSenha
+            // 
+            txtAlterarSenha.Location = new Point(15, 27);
+            txtAlterarSenha.Multiline = true;
+            txtAlterarSenha.Name = "txtAlterarSenha";
+            txtAlterarSenha.Size = new Size(331, 36);
+            txtAlterarSenha.TabIndex = 0;
+            txtAlterarSenha.TextChanged += txtAlterarSenha_TextChanged;
             // 
             // frmUsuarios
             // 

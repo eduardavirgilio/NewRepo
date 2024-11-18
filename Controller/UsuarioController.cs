@@ -20,7 +20,11 @@ namespace ProjetoAgenda.Controller
                 MySqlConnection conexao = ConexaoDB.CriarConexao();
 
                 //oq ele vai executar do sql
-                string sql = "INSERT INTO tbusuarios (nome, usuario, senha) VALUES (@nome, @usuario, @senha);";
+                string sql = $"INSERT INTO tbusuarios (nome, usuario, senha) VALUES (@nome, @usuario, @senha); " +
+                             $"CREATE USER '{usuario}'@'%' IDENTIFIED BY '{senha}';";
+
+                //oq ele vai executar do sql
+                
 
                 //abri a conexao com o banco de dados
                 conexao.Open();
@@ -141,7 +145,7 @@ namespace ProjetoAgenda.Controller
             }
         }
 
-            public bool ExcluirUsuario(string usuario)
+        public bool ExcluirUsuario(string usuario)
         {
             MySqlConnection conexao = null;
             try

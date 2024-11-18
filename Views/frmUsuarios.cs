@@ -99,5 +99,10 @@ namespace ProjetoAgenda.Views
 
             AtualizaDataGrid();
         }
+
+        private void txtAlterarSenha_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
