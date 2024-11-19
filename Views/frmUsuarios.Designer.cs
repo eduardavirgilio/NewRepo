@@ -130,6 +130,7 @@
             Controls.Add(label1);
             Controls.Add(dgvUsuario);
             Name = "frmUsuarios";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "frmUsuarios";
             Load += frmUsuarios_Load_1;
             ((System.ComponentModel.ISupportInitialize)dgvUsuario).EndInit();
