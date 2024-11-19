@@ -1,4 +1,5 @@
 ﻿using ProjetoAgenda.Controller;
+using ProjetoAgenda.VariableGlobal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,12 +44,14 @@ namespace ProjetoAgenda.Views
         {
             //pegando os dados do formulario
             string nome = txtNome.Text;
+            string usuario = UserSession.usuario;
+            string senha = UserSession.senha;
 
             //chamando a classe
             CategoriaController criaCategoria = new CategoriaController();
 
             //inserindo o usuario
-            bool resultado = criaCategoria.AddCategorias(nome);
+            bool resultado = criaCategoria.AddCategorias(nome, usuario, senha);
 
             if (resultado)
             {

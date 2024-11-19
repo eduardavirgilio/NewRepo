@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using ProjetoAgenda.Data;
+using ProjetoAgenda.VariableGlobal;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,15 +12,18 @@ namespace ProjetoAgenda.Controller
 {
     internal class CategoriaController
     {
-        public bool AddCategorias(string nome)
+        public bool AddCategorias(string nome, string senha, string usuario)
+
+
         {
             //conecta no banco de dados (criando fora e em branco pra conexao do finally funcionar)
             MySqlConnection conexao = null;
             
             try
             {
-               conexao = ConexaoDB.CriarConexao();
-
+                conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
+                
+                
                 //oq ele vai executar do sql
                 string sql = "INSERT INTO tbcategorias (categorias) VALUES (@nome);";
 
@@ -72,7 +76,7 @@ namespace ProjetoAgenda.Controller
                  conexao = ConexaoDB.CriarConexao();
 
                 //montando o select que retorna todas as categorias
-                string sql = @"select cod_categoria AS 'Código', categorias AS 'Categoria' from tbcategorias;";
+                string sql = @"select cod_categoria AS 'Código', categorias AS 'Categoria', usuario AS 'Usuario' from tbcategorias;";
 
                 //abri a conexao
                 conexao.Open();
@@ -149,6 +153,7 @@ namespace ProjetoAgenda.Controller
                 conexao.Close( );
             }
         }
-           
+        
+
     }
 }

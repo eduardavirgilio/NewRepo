@@ -1,3 +1,5 @@
+using ProjetoAgenda.Controller;
+using ProjetoAgenda.VariableGlobal;
 using ProjetoAgenda.Views;
 
 namespace ProjetoAgenda
@@ -46,7 +48,9 @@ namespace ProjetoAgenda
             frmPrincipal formularioPrincipal = new frmPrincipal();
             formularioPrincipal.ShowDialog();
 
-          
+            UserSession.nome = txtUsuario.Text;
+
+            UserSession.nome = txtSenha.Text; 
         }
     }
 }

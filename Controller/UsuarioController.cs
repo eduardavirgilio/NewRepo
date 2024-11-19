@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProjetoAgenda.VariableGlobal;
 
 namespace ProjetoAgenda.Controller
 {
@@ -89,6 +90,8 @@ namespace ProjetoAgenda.Controller
                 if (resultado.Read())
                 {
                     conexao.Close();
+                    UserSession.usuario = usuario;
+                    UserSession.senha = senha;
                     return true;
                 }
 
