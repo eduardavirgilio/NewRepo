@@ -120,15 +120,13 @@ namespace ProjetoAgenda.Views
         {
             //pegando os dados do formulario
             string nome = txtNome.Text;
-
-            //para excluir a linha
-            string usuarios = Convert.ToString(dgvCategoria.SelectedRows[0].Cells[0].Value);
+            int cod_categoria = Convert.ToInt32(dgvCategoria.SelectedRows[0].Cells[0].Value);
 
             //chamando a classe
             CategoriaController alterarNome = new CategoriaController();
 
             //inserindo o usuario
-            bool resultado = alterarNome.AlterarNome(nome, usuarios);
+            bool resultado = alterarNome.AlterarNome(nome, cod_categoria);
 
             if (resultado)
             {

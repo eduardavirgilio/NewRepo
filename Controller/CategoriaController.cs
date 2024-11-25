@@ -154,7 +154,7 @@ namespace ProjetoAgenda.Controller
             }
         }
 
-        public bool AlterarNome(string nome, string usuario)
+        public bool AlterarNome(string nome, int cod_categoria)
         {
             MySqlConnection conexao = null;
             try
@@ -162,7 +162,7 @@ namespace ProjetoAgenda.Controller
                 conexao = ConexaoDB.CriarConexao();
 
                 //montando o select que retorna todas as categorias
-                string sql = @"update tbcategorias set categorias = (@nome) where usuario = (@usuario);";
+                string sql = @"update tbcategorias set categorias = (@nome) where cod_categoria = (@codigo);";
 
                 //abri a conexao com o banco de dados
                 conexao.Open();
@@ -173,7 +173,7 @@ namespace ProjetoAgenda.Controller
                 //troca o valor dos @ pelas informações que serão cadastradas 
                 //essas informações vieram das funções
                 comando.Parameters.AddWithValue("@nome", nome);
-                comando.Parameters.AddWithValue("@usuario", usuario);
+                comando.Parameters.AddWithValue("@codigo", cod_categoria);
 
                 //executando no banco de dados - o execute etc retorna a quantidade de linhas afetadas
                 int linhasAfetadas = comando.ExecuteNonQuery();
