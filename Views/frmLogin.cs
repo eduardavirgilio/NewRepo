@@ -43,14 +43,27 @@ namespace ProjetoAgenda
 
         private void btnLogar_Click(object sender, EventArgs e)
         {
-            this.Hide();
 
-            frmPrincipal formularioPrincipal = new frmPrincipal();
-            formularioPrincipal.ShowDialog();
+            UsuarioController usuarioController = new UsuarioController();
 
-            UserSession.nome = txtUsuario.Text;
+            string usuario = txtUsuario.Text;
+            string senha = txtSenha.Text;
 
-            UserSession.nome = txtSenha.Text; 
+
+            bool validacao = usuarioController.ValidarLogin(usuario, senha);
+
+            if (validacao)
+            {
+                this.Hide();
+
+                frmPrincipal formularioPrincipal = new frmPrincipal();
+                formularioPrincipal.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("entra com alguem que existe");
+            }
+
         }
     }
 }

@@ -34,6 +34,7 @@
             button1 = new Button();
             dgvCategoria = new DataGridView();
             btnExcluir = new Button();
+            btnAlterar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvCategoria).BeginInit();
             SuspendLayout();
             // 
@@ -64,7 +65,7 @@
             // 
             btnCadastrar.BackColor = Color.Lavender;
             btnCadastrar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCadastrar.Location = new Point(248, 116);
+            btnCadastrar.Location = new Point(233, 116);
             btnCadastrar.Name = "btnCadastrar";
             btnCadastrar.Size = new Size(137, 31);
             btnCadastrar.TabIndex = 2;
@@ -76,7 +77,7 @@
             // 
             button1.BackColor = Color.MistyRose;
             button1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(282, 437);
+            button1.Location = new Point(267, 437);
             button1.Name = "button1";
             button1.Size = new Size(103, 31);
             button1.TabIndex = 3;
@@ -99,7 +100,7 @@
             // 
             btnExcluir.BackColor = Color.White;
             btnExcluir.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnExcluir.Location = new Point(23, 116);
+            btnExcluir.Location = new Point(23, 437);
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Size = new Size(103, 31);
             btnExcluir.TabIndex = 6;
@@ -107,12 +108,25 @@
             btnExcluir.UseVisualStyleBackColor = false;
             btnExcluir.Click += btnExcluir_Click;
             // 
+            // btnAlterar
+            // 
+            btnAlterar.BackColor = Color.Lavender;
+            btnAlterar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAlterar.Location = new Point(23, 116);
+            btnAlterar.Name = "btnAlterar";
+            btnAlterar.Size = new Size(137, 31);
+            btnAlterar.TabIndex = 7;
+            btnAlterar.Text = "alterar";
+            btnAlterar.UseVisualStyleBackColor = false;
+            btnAlterar.Click += btnAlterar_Click;
+            // 
             // frmCategorias
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LavenderBlush;
             ClientSize = new Size(405, 480);
+            Controls.Add(btnAlterar);
             Controls.Add(btnExcluir);
             Controls.Add(dgvCategoria);
             Controls.Add(button1);
@@ -137,5 +151,6 @@
         private Button button1;
         private DataGridView dgvCategoria;
         private Button btnExcluir;
+        private Button btnAlterar;
     }
 }

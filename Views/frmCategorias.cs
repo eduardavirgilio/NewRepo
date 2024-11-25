@@ -115,6 +115,33 @@ namespace ProjetoAgenda.Views
         {
             AtualizaDataGrid();
         }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            //pegando os dados do formulario
+            string nome = txtNome.Text;
+
+            //para excluir a linha
+            string usuarios = Convert.ToString(dgvCategoria.SelectedRows[0].Cells[0].Value);
+
+            //chamando a classe
+            CategoriaController alterarNome = new CategoriaController();
+
+            //inserindo o usuario
+            bool resultado = alterarNome.AlterarNome(nome, usuarios);
+
+            if (resultado)
+            {
+                MessageBox.Show("Nome alterado com sucesso!");
+            }
+
+            else
+            {
+                MessageBox.Show("Não foi possivel alterar o nome.");
+            }
+
+            AtualizaDataGrid();
+        }
     }
 }
 

@@ -25,15 +25,13 @@ namespace ProjetoAgenda.VariableGlobal
         public static string nome
         {
             get { return _nome; }
-            set
-            {_nome = value;}
+            set{_nome = value;}
         }
 
         public static string senha
         {
             get { return _senha; }
-            set
-            { _senha = value; }
+            set{ _senha = value; }
         }
     }
 }
