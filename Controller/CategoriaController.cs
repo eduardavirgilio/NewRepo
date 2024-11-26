@@ -76,7 +76,7 @@ namespace ProjetoAgenda.Controller
                  conexao = ConexaoDB.CriarConexao();
 
                 //montando o select que retorna todas as categorias
-                string sql = @"select cod_categoria AS 'Código', categorias AS 'Categoria', usuario AS 'Usuario' from tbcategorias;";
+                string sql = @"select cod_categoria AS 'Código', categorias AS 'Categoria', usuario AS 'Usuario' from tbcategorias where Usuario like '@usuario%';";
 
                 //abri a conexao
                 conexao.Open();
@@ -110,7 +110,7 @@ namespace ProjetoAgenda.Controller
         {
             MySqlConnection conexao = null;
             try {
-                conexao = ConexaoDB.CriarConexao(UserSession.nome, UserSession.senha);
+                conexao = ConexaoDB.CriarConexao();
 
                 //montando o select que retorna todas as categorias
                 string sql = @"delete from tbcategorias where cod_categoria = (@codigo_categoria);";
@@ -194,7 +194,7 @@ namespace ProjetoAgenda.Controller
             catch (Exception erro)
             {
                 //aparece quando da erro, a segunda aspas eh o titulo, o buttons cria um botão e o icon cria um icone
-                MessageBox.Show($"Erro ao alterar senha : {erro.Message}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show($"Erro ao alterar categoria : {erro.Message}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
             finally

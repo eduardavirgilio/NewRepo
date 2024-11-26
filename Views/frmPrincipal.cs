@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetoAgenda.VariableGlobal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,6 +27,10 @@ namespace ProjetoAgenda.Views
         {
             frmCategorias formularioPrincipal = new frmCategorias();
             formularioPrincipal.ShowDialog();
+
+           
+            UserSession.nome = lblBemvindo.Text;
+            
         }
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
@@ -37,6 +42,11 @@ namespace ProjetoAgenda.Views
         {
             frmUsuarios formularioUsuarios = new frmUsuarios();
             formularioUsuarios.ShowDialog();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

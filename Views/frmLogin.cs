@@ -9,6 +9,7 @@ namespace ProjetoAgenda
         public frmLogin()
         {
             InitializeComponent();
+
         }
 
         private void habilitarBotaoLogin()
@@ -29,6 +30,7 @@ namespace ProjetoAgenda
         {
             frmCadastro formularioCadastro = new frmCadastro();
             formularioCadastro.ShowDialog();
+
         }
 
         private void txtUsuario_TextChanged(object sender, EventArgs e)
@@ -40,10 +42,8 @@ namespace ProjetoAgenda
         {
             habilitarBotaoLogin();
         }
-
         private void btnLogar_Click(object sender, EventArgs e)
         {
-
             UsuarioController usuarioController = new UsuarioController();
 
             string usuario = txtUsuario.Text;
@@ -58,6 +58,9 @@ namespace ProjetoAgenda
 
                 frmPrincipal formularioPrincipal = new frmPrincipal();
                 formularioPrincipal.ShowDialog();
+
+                UserSession.usuario = txtUsuario.Text;
+                UserSession.senha = txtSenha.Text;
             }
             else
             {
@@ -66,4 +69,6 @@ namespace ProjetoAgenda
 
         }
     }
-}
+
+    }
+

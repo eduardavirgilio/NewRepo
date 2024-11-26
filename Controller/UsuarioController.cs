@@ -74,7 +74,7 @@ namespace ProjetoAgenda.Controller
                 //conecta no banco de dados
                 MySqlConnection conexao = ConexaoDB.CriarConexao();
 
-                string sql = @"select * from tbusuarios 
+                string sql = @"select usuario, senha, nome from tbusuarios 
                          where usuario = @usuario
                          and binary senha = @senha;";
 
@@ -89,10 +89,12 @@ namespace ProjetoAgenda.Controller
 
                 if (resultado.Read())
                 {
+                    UserSession.usuario = resultado.GetString("usuario");
+                    UserSession.nome = resultado.GetString("nome");
+                    UserSession.senha = resultado.GetString("senha");
                     conexao.Close();
-                    UserSession.usuario = usuario;
-                    UserSession.senha = senha;
                     return true;
+                    
                 }
 
                 else
@@ -247,5 +249,7 @@ namespace ProjetoAgenda.Controller
                 conexao.Close();
             }
         }
+
+
     }
 }
