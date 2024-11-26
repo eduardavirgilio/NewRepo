@@ -35,8 +35,8 @@
             cadastrarToolStripMenuItem = new ToolStripMenuItem();
             categoriasToolStripMenuItem = new ToolStripMenuItem();
             usuáriosToolStripMenuItem = new ToolStripMenuItem();
-            lblBemvindo = new Label();
             agendaToolStripMenuItem = new ToolStripMenuItem();
+            lblBemvindo = new Label();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -95,6 +95,13 @@
             usuáriosToolStripMenuItem.Text = "Usuários";
             usuáriosToolStripMenuItem.Click += usuáriosToolStripMenuItem_Click;
             // 
+            // agendaToolStripMenuItem
+            // 
+            agendaToolStripMenuItem.Name = "agendaToolStripMenuItem";
+            agendaToolStripMenuItem.Size = new Size(180, 22);
+            agendaToolStripMenuItem.Text = "Agenda";
+            agendaToolStripMenuItem.Click += agendaToolStripMenuItem_Click;
+            // 
             // lblBemvindo
             // 
             lblBemvindo.AutoSize = true;
@@ -105,12 +112,6 @@
             lblBemvindo.TabIndex = 1;
             lblBemvindo.Text = "Seja bem vinda(o) nome!";
             lblBemvindo.Click += label1_Click;
-            // 
-            // agendaToolStripMenuItem
-            // 
-            agendaToolStripMenuItem.Name = "agendaToolStripMenuItem";
-            agendaToolStripMenuItem.Size = new Size(180, 22);
-            agendaToolStripMenuItem.Text = "Agenda";
             // 
             // frmPrincipal
             // 

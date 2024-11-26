@@ -28,9 +28,9 @@ namespace ProjetoAgenda.Views
             frmCategorias formularioPrincipal = new frmCategorias();
             formularioPrincipal.ShowDialog();
 
-           
+
             UserSession.nome = lblBemvindo.Text;
-            
+
         }
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
@@ -46,7 +46,13 @@ namespace ProjetoAgenda.Views
 
         private void label1_Click(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void agendaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAgenda formularioAgenda = new frmAgenda();
+            formularioAgenda.ShowDialog();
         }
     }
 }
