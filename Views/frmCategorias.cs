@@ -56,6 +56,7 @@ namespace ProjetoAgenda.Views
             if (resultado)
             {
                 MessageBox.Show("Categoria cadastrada com sucesso!");
+                AtualizaDataGrid();
             }
 
             else

@@ -21,7 +21,7 @@ create trigger trinsertcategoria
 	on tbcategoria
 	for each row
 begin 
-	set new.usuario = CURRENT_USER();
+	set new.usuario = USER();
 end;tbusuarios
 
 $$
