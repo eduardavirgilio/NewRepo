@@ -133,6 +133,7 @@
             dgvContatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvContatos.Location = new Point(392, 23);
             dgvContatos.Name = "dgvContatos";
+            dgvContatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvContatos.Size = new Size(405, 268);
             dgvContatos.TabIndex = 1;
             dgvContatos.CellContentClick += dataGridView1_CellContentClick;
