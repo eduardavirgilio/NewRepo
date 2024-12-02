@@ -53,8 +53,6 @@ namespace ProjetoAgenda.Views
             string nome = txtNome.Text;
             string categoria = cmbCategoria.Text;
 
-
-
             //chamando a classe
             ContatoController criaContato = new ContatoController();
 
