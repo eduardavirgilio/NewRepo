@@ -29,28 +29,28 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            txtCategoria = new TextBox();
             cmbCategoria = new ComboBox();
-            button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
+            btnAlterar = new Button();
+            btnExcluir = new Button();
+            btnCadastrar = new Button();
             label2 = new Label();
-            textBox1 = new TextBox();
+            txtNome = new TextBox();
             label1 = new Label();
             dgvContatos = new DataGridView();
-            textBox2 = new TextBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvContatos).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(textBox2);
+            groupBox1.Controls.Add(txtCategoria);
             groupBox1.Controls.Add(cmbCategoria);
-            groupBox1.Controls.Add(button3);
-            groupBox1.Controls.Add(button2);
-            groupBox1.Controls.Add(button1);
+            groupBox1.Controls.Add(btnAlterar);
+            groupBox1.Controls.Add(btnExcluir);
+            groupBox1.Controls.Add(btnCadastrar);
             groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(txtNome);
             groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
@@ -58,6 +58,14 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "adicionar contato";
+            // 
+            // txtCategoria
+            // 
+            txtCategoria.Location = new Point(19, 145);
+            txtCategoria.Multiline = true;
+            txtCategoria.Name = "txtCategoria";
+            txtCategoria.Size = new Size(299, 37);
+            txtCategoria.TabIndex = 8;
             // 
             // cmbCategoria
             // 
@@ -67,35 +75,36 @@
             cmbCategoria.Size = new Size(299, 23);
             cmbCategoria.TabIndex = 7;
             // 
-            // button3
+            // btnAlterar
             // 
-            button3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button3.Location = new Point(134, 217);
-            button3.Name = "button3";
-            button3.Size = new Size(90, 32);
-            button3.TabIndex = 6;
-            button3.Text = "alterar";
-            button3.UseVisualStyleBackColor = true;
+            btnAlterar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnAlterar.Location = new Point(134, 217);
+            btnAlterar.Name = "btnAlterar";
+            btnAlterar.Size = new Size(90, 32);
+            btnAlterar.TabIndex = 6;
+            btnAlterar.Text = "alterar";
+            btnAlterar.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnExcluir
             // 
-            button2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.Location = new Point(244, 217);
-            button2.Name = "button2";
-            button2.Size = new Size(90, 32);
-            button2.TabIndex = 5;
-            button2.Text = "excluir";
-            button2.UseVisualStyleBackColor = true;
+            btnExcluir.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnExcluir.Location = new Point(244, 217);
+            btnExcluir.Name = "btnExcluir";
+            btnExcluir.Size = new Size(90, 32);
+            btnExcluir.TabIndex = 5;
+            btnExcluir.Text = "excluir";
+            btnExcluir.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnCadastrar
             // 
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(19, 217);
-            button1.Name = "button1";
-            button1.Size = new Size(90, 32);
-            button1.TabIndex = 4;
-            button1.Text = "cadastrar";
-            button1.UseVisualStyleBackColor = true;
+            btnCadastrar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnCadastrar.Location = new Point(19, 217);
+            btnCadastrar.Name = "btnCadastrar";
+            btnCadastrar.Size = new Size(90, 32);
+            btnCadastrar.TabIndex = 4;
+            btnCadastrar.Text = "cadastrar";
+            btnCadastrar.UseVisualStyleBackColor = true;
+            btnCadastrar.Click += btnCadastrar_Click_1;
             // 
             // label2
             // 
@@ -107,13 +116,13 @@
             label2.TabIndex = 2;
             label2.Text = "categoria";
             // 
-            // textBox1
+            // txtNome
             // 
-            textBox1.Location = new Point(19, 56);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(299, 37);
-            textBox1.TabIndex = 1;
+            txtNome.Location = new Point(19, 56);
+            txtNome.Multiline = true;
+            txtNome.Name = "txtNome";
+            txtNome.Size = new Size(299, 37);
+            txtNome.TabIndex = 1;
             // 
             // label1
             // 
@@ -135,14 +144,6 @@
             dgvContatos.TabIndex = 1;
             dgvContatos.CellContentClick += dataGridView1_CellContentClick;
             // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(19, 145);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(299, 37);
-            textBox2.TabIndex = 8;
-            // 
             // frmAgenda
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -163,14 +164,14 @@
         #endregion
 
         private GroupBox groupBox1;
-        private Button button1;
+        private Button btnCadastrar;
         private Label label2;
-        private TextBox textBox1;
+        private TextBox txtNome;
         private Label label1;
-        private Button button3;
-        private Button button2;
+        private Button btnAlterar;
+        private Button btnExcluir;
         private ComboBox cmbCategoria;
         private DataGridView dgvContatos;
-        private TextBox textBox2;
+        private TextBox txtCategoria;
     }
 }

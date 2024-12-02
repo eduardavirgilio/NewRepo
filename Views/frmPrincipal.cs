@@ -54,5 +54,10 @@ namespace ProjetoAgenda.Views
             frmAgenda formularioAgenda = new frmAgenda();
             formularioAgenda.ShowDialog();
         }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+            lblBemvindo.Text = $"Seja bem vindo {UserSession.nome}";
+        }
     }
 }
