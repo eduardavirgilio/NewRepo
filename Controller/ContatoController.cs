@@ -105,7 +105,7 @@ namespace ProjetoAgenda.Controller
             }
         }
 
-        public bool AlterarNome(string nome, int cod_categoria)
+        public bool AlterarNome(string nome, string categoria, int cod_categoria)
         {
             MySqlConnection conexao = null;
             try
@@ -113,7 +113,7 @@ namespace ProjetoAgenda.Controller
                 conexao = ConexaoDB.CriarConexao();
 
                 //montando o select que retorna todas as categorias
-                string sql = @"update tbcontatos set nome = (@nome) and  where cod_contato = (@codigo);";
+                string sql = @"UPDATE dbagenda.tbcontatos SET nome = (@nome), categoria = (@categoria) WHERE cod_contato = (@codigo);";
 
                 //abri a conexao com o banco de dados
                 conexao.Open();
@@ -125,6 +125,7 @@ namespace ProjetoAgenda.Controller
                 //essas informações vieram das funções
                 comando.Parameters.AddWithValue("@nome", nome);
                 comando.Parameters.AddWithValue("@codigo", cod_categoria);
+                comando.Parameters.AddWithValue("@categoria", categoria);
 
                 //executando no banco de dados - o execute etc retorna a quantidade de linhas afetadas
                 int linhasAfetadas = comando.ExecuteNonQuery();
@@ -146,6 +147,55 @@ namespace ProjetoAgenda.Controller
             {
                 //aparece quando da erro, a segunda aspas eh o titulo, o buttons cria um botão e o icon cria um icone
                 MessageBox.Show($"Erro ao alterar categoria : {erro.Message}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            finally
+            {
+                //encerrando a conexao
+                conexao.Close();
+            }
+        }
+
+        public bool ExcluirContato(int cod_contato)
+        {
+            MySqlConnection conexao = null;
+            try
+            {
+                conexao = ConexaoDB.CriarConexao();
+
+                //montando o select que retorna todas as categorias
+                string sql = @"delete from tbcontatos where cod_contato = (@codigo_categoria);";
+
+                //abri a conexao com o banco de dados
+                conexao.Open();
+
+                //executa o comando sql
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
+
+                //troca o valor dos @ pelas informações que serão cadastradas 
+                //essas informações vieram das funções
+                comando.Parameters.AddWithValue("@codigo_categoria", cod_contato);
+
+                //executando no banco de dados - o execute etc retorna a quantidade de linhas afetadas
+                int linhasAfetadas = comando.ExecuteNonQuery();
+
+                //se a quantidade de linhas que ele afetou for maior que 0, retorna true - se conseguiu cadastrar
+                if (linhasAfetadas > 0)
+                {
+                    return true;
+                }
+
+                //se não conseguiu, retorna false (< 0 linhas)
+                else
+                {
+                    return false;
+                }
+                //caso de erro
+            }
+            catch (Exception erro)
+            {
+                //aparece quando da erro, a segunda aspas eh o titulo, o buttons cria um botão e o icon cria um icone
+                MessageBox.Show($"Erro ao apagar categoria: {erro.Message}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
             finally

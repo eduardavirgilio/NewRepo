@@ -81,5 +81,59 @@ namespace ProjetoAgenda.Views
         {
 
         }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            //pegando os dados do formulario
+            string nome = txtNome.Text;
+            string categoria = cmbCategoria.Text;
+            int cod_contato = Convert.ToInt32(dgvContatos.SelectedRows[0].Cells[0].Value);
+
+            //chamando a classe
+            ContatoController alterarNome = new ContatoController();
+
+            //inserindo o usuario
+            bool resultado = alterarNome.AlterarNome(nome, categoria, cod_contato);
+
+            if (resultado)
+            {
+                MessageBox.Show("Nome e/ou categoria alterado com sucesso!");
+            }
+
+            else
+            {
+                MessageBox.Show("Não foi possivel alterar o nome e/ou categoria.");
+            }
+
+            AtualizaDataGrid();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            //string cod_categoria = txtNome.Text;
+
+            //para excluir a linha
+            int cod_contato = Convert.ToInt32(dgvContatos.SelectedRows[0].Cells[0].Value);
+
+            //chamando a classe
+            ContatoController excluiContato = new ContatoController();
+
+            //inserindo o usuario
+            bool resultado = excluiContato.ExcluirContato(cod_contato);
+
+            if (resultado)
+            {
+                MessageBox.Show("Contato excluido com sucesso!");
+            }
+
+            else
+            {
+                MessageBox.Show("Não foi possivel excluir o contato.");
+            }
+
+            //atualizar a tabela
+
+            AtualizaDataGrid();
+        }
     }
 }

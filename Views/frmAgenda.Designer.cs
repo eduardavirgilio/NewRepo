@@ -75,6 +75,7 @@
             btnAlterar.TabIndex = 6;
             btnAlterar.Text = "alterar";
             btnAlterar.UseVisualStyleBackColor = true;
+            btnAlterar.Click += btnAlterar_Click;
             // 
             // btnExcluir
             // 
@@ -85,6 +86,7 @@
             btnExcluir.TabIndex = 5;
             btnExcluir.Text = "excluir";
             btnExcluir.UseVisualStyleBackColor = true;
+            btnExcluir.Click += btnExcluir_Click;
             // 
             // btnCadastrar
             // 
