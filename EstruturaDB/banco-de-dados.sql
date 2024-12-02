@@ -18,10 +18,10 @@ delimiter $$
 create trigger trinsertcategoria
 	before
 	insert
-	on tbcategoria
+	on tbcategorias
 	for each row
 begin 
-	set new.usuario = USER();
+	set new.usuario = CURRENT_USER();
 end;tbusuarios
 
 $$
@@ -55,10 +55,10 @@ delimiter $$
 create trigger trinsertcategoria
 	before
 	insert
-	on tbcategoria
+	on tbcategorias
 	for each row
 begin 
-	set new.usuario = CURRENT_USER();
+	set new.usuario = USER();
 end;tbusuarios
 
 $$
@@ -122,10 +122,93 @@ $$
 
 delimiter ;
 
+create table tbcontatos(
+	cod_contato INT AUTO_INCREMENT primary key,
+	nome VARCHAR(80) NOT NULL,
+    categoria VARCHAR(100) NOT NULL
+    );
+
+-- trigger pra add contato
+
+delimiter $$
+create trigger trlogaddcontato
+	after
+	update
+	on tbcontatos
+	for each row
+begin 
+	insert into tblog
+		(usuario,
+        ultima_alteracao,
+        descricao)
+        
+	values
+    (USER(),
+    CURRENT_TIMESTAMP(),
+    CONCAT('O contato ', NEW.nome, ' foi adicionado'));
+    
+end;
+
+$$
+
+delimiter ;
+
+-- trigger para alterar contato
+
+delimiter $$
+create trigger trlogcontatoupdate
+	after
+	update
+	on tbcontatos
+	for each row
+begin 
+	insert into tblog
+		(usuario,
+        ultima_alteracao,
+        descricao)
+        
+	values
+    (USER(),
+    CURRENT_TIMESTAMP(),
+    CONCAT('O contato ', OLD.nome, ' foi alterado para ', NEW.nome));
+    
+end;
+
+$$
+
+delimiter ;
+
+-- trigger para excluir contato
+
+delimiter $$
+create trigger trlogcontatodelete
+	after
+	update
+	on tbcontatos
+	for each row
+begin 
+	insert into tblog
+		(usuario,
+        ultima_alteracao,
+        descricao)
+        
+	values
+    (USER(),
+    CURRENT_TIMESTAMP(),
+    CONCAT('O contato ', OLD.nome, ' foi deletado'));
+    
+end;
+
+$$
+
+delimiter ;
 
 select * from tblog;
 
-select * from tbusuarios;
+select * from tbcontatos;
+
+UPDATE `dbagenda`.`tbcontatos` 
+SET `nome` = 'smt', `categoria` = 'socoror' WHERE (`cod_contato` = '2');
 
 select * from mySql.user;
 
