@@ -113,7 +113,7 @@ namespace ProjetoAgenda.Controller
                 conexao = ConexaoDB.CriarConexao();
 
                 //montando o select que retorna todas as categorias
-                string sql = @"update tbcategorias set categorias = (@nome) where cod_categoria = (@codigo);";
+                string sql = @"update tbcontatos set nome = (@nome) and  where cod_contato = (@codigo);";
 
                 //abri a conexao com o banco de dados
                 conexao.Open();

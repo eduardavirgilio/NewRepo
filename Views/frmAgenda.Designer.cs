@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            txtCategoria = new TextBox();
             cmbCategoria = new ComboBox();
             btnAlterar = new Button();
             btnExcluir = new Button();
@@ -44,7 +43,6 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(txtCategoria);
             groupBox1.Controls.Add(cmbCategoria);
             groupBox1.Controls.Add(btnAlterar);
             groupBox1.Controls.Add(btnExcluir);
@@ -59,21 +57,14 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "adicionar contato";
             // 
-            // txtCategoria
-            // 
-            txtCategoria.Location = new Point(19, 145);
-            txtCategoria.Multiline = true;
-            txtCategoria.Name = "txtCategoria";
-            txtCategoria.Size = new Size(299, 37);
-            txtCategoria.TabIndex = 8;
-            // 
             // cmbCategoria
             // 
             cmbCategoria.FormattingEnabled = true;
-            cmbCategoria.Location = new Point(19, 188);
+            cmbCategoria.Location = new Point(19, 161);
             cmbCategoria.Name = "cmbCategoria";
             cmbCategoria.Size = new Size(299, 23);
             cmbCategoria.TabIndex = 7;
+            cmbCategoria.SelectedIndexChanged += cmbCategoria_SelectedIndexChanged;
             // 
             // btnAlterar
             // 
@@ -172,6 +163,5 @@
         private Button btnExcluir;
         private ComboBox cmbCategoria;
         private DataGridView dgvContatos;
-        private TextBox txtCategoria;
     }
 }

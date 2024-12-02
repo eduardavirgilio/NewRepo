@@ -25,9 +25,15 @@ namespace ProjetoAgenda.Views
 
             ContatoController controleContato = new ContatoController();
 
+            CategoriaController controleCategoria = new CategoriaController();
+
             DataTable tabela = controleContato.GetContatos();
 
             dgvContatos.DataSource = tabela;
+
+            tabela = controleCategoria.GetCategorias();
+            cmbCategoria.DataSource = tabela;
+            cmbCategoria.DisplayMember = "categorias";
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -37,6 +43,7 @@ namespace ProjetoAgenda.Views
 
         private void frmAgenda_Load(object sender, EventArgs e)
         {
+
             AtualizaDataGrid();
         }
 
@@ -44,7 +51,9 @@ namespace ProjetoAgenda.Views
         {
             //pegando os dados do formulario
             string nome = txtNome.Text;
-            string categoria = txtCategoria.Text;
+            string categoria = cmbCategoria.Text;
+
+
 
             //chamando a classe
             ContatoController criaContato = new ContatoController();
@@ -63,6 +72,16 @@ namespace ProjetoAgenda.Views
             }
 
             AtualizaDataGrid();
+        }
+
+        private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCategoria_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
