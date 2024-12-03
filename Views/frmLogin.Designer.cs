@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             lblTexto = new Label();
             txtUsuario = new TextBox();
             label1 = new Label();
@@ -88,6 +89,7 @@
             btnLogar.TabIndex = 4;
             btnLogar.Text = "LOGAR";
             btnLogar.UseVisualStyleBackColor = false;
+            btnLogar.Click += btnLogar_Click;
             // 
             // btnCadastrar
             // 
@@ -113,9 +115,11 @@
             Controls.Add(label1);
             Controls.Add(txtUsuario);
             Controls.Add(lblTexto);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmLogin";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "login";
+            Text = "Login";
+            Load += frmLogin_Load;
             ResumeLayout(false);
             PerformLayout();
         }

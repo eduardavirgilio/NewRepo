@@ -1,32 +1,28 @@
 ﻿using MySql.Data.MySqlClient;
 using ProjetoAgenda.Data;
+using ProjetoAgenda.VariableGlobal;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ProjetoAgenda.VariableGlobal;
 
 namespace ProjetoAgenda.Controller
 {
-    internal class UsuarioController
+    internal class ContatoController
     {
-        // add usuario eh um metodo
-        public bool AddUsuario(string nome, string usuario, string senha)
+        public bool AddContato(string nome, string categoria)
         {
+            MySqlConnection conexao = null;
             try
             {
                 //conecta no banco de dados
-                MySqlConnection conexao = ConexaoDB.CriarConexao();
+                conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
 
                 //oq ele vai executar do sql
-                string sql = $@"CREATE USER '{usuario}'@'%' IDENTIFIED BY '{senha}';
-                             GRANT select, insert, delete, update on dbagenda.* to '{usuario}'@'%';
-                             INSERT INTO tbusuarios (nome, usuario, senha) VALUES (@nome, @usuario, @senha);";
+                string sql = $@"INSERT INTO tbcontatos (nome, categoria) VALUES (@nome, @categoria);";
 
-                //oq ele vai executar do sql
-                
 
                 //abri a conexao com o banco de dados
                 conexao.Open();
@@ -37,8 +33,7 @@ namespace ProjetoAgenda.Controller
                 //troca o valor dos @ pelas informações que serão cadastradas 
                 //essas informações vieram das funções
                 comando.Parameters.AddWithValue("@nome", nome);
-                comando.Parameters.AddWithValue("@usuario", usuario);
-                comando.Parameters.AddWithValue("@senha", senha);
+                comando.Parameters.AddWithValue("@categoria", categoria);
 
                 //executando no banco de dados - o execute etc retorna a quantidade de linhas afetadas
                 int linhasAfetadas = comando.ExecuteNonQuery();
@@ -61,68 +56,23 @@ namespace ProjetoAgenda.Controller
             catch (Exception erro)
             {
                 //aparece quando da erro, a segunda aspas eh o titulo, o buttons cria um botão e o icon cria um icone
-                MessageBox.Show($"Erro ao cadastrar: {erro.Message}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show($"Erro ao cadastrar o contato: {erro.Message}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
 
         }
 
-        public bool ValidarLogin(string usuario, string senha)
-        {
-            try
-            {
-                //conecta no banco de dados
-                MySqlConnection conexao = ConexaoDB.CriarConexao();
-
-                string sql = @"select usuario, senha, nome from tbusuarios 
-                         where usuario = @usuario
-                         and binary senha = @senha;";
-
-                conexao.Open();
-
-                MySqlCommand comando = new MySqlCommand(sql, conexao);
-
-                comando.Parameters.AddWithValue("@usuario", usuario);
-                comando.Parameters.AddWithValue("@senha", senha);
-
-                MySqlDataReader resultado = comando.ExecuteReader();
-
-                if (resultado.Read())
-                {
-                    UserSession.usuario = resultado.GetString("usuario");
-                    UserSession.nome = resultado.GetString("nome");
-                    UserSession.senha = resultado.GetString("senha");
-                    conexao.Close();
-                    return true;
-                    
-                }
-
-                else
-                {
-                    conexao.Close();
-                    return false;
-                }
-
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show($"Erro ao verificar o usuario.");
-                return false;
-            }
-
-        }
-
-        public DataTable GetUsuarios()
+        public DataTable GetContatos()
         {
             //criando uma conexao vazia
             MySqlConnection conexao = null;
             try
             {
                 //criando uma conexao com a conexao db que ja estava criada
-                conexao = ConexaoDB.CriarConexao();
+                conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
 
                 //montando o select que retorna todas as categorias
-                string sql = @"select usuario, nome from tbusuarios;";
+                string sql = @"select cod_contato, nome, categoria, usuario from tbcontatos where usuario = User();";
 
                 //abri a conexao
                 conexao.Open();
@@ -141,7 +91,7 @@ namespace ProjetoAgenda.Controller
             }
             catch (Exception erro)
             {
-                MessageBox.Show($"ERRO AO RECUPERAR USUARIOS: {erro.Message}");
+                MessageBox.Show($"ERRO AO RECUPERAR CONTATOS: {erro.Message}");
                 return new DataTable();
             }
 
@@ -151,15 +101,15 @@ namespace ProjetoAgenda.Controller
             }
         }
 
-        public bool ExcluirUsuario(string usuario)
+        public bool AlterarNome(string nome, string categoria, int cod_categoria)
         {
             MySqlConnection conexao = null;
             try
             {
-                conexao = ConexaoDB.CriarConexao();
+                conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
 
                 //montando o select que retorna todas as categorias
-                string sql = @"delete from tbusuarios where usuario = (@usuario);";
+                string sql = @"UPDATE dbagenda.tbcontatos SET nome = (@nome), categoria = (@categoria) WHERE cod_contato = (@codigo);";
 
                 //abri a conexao com o banco de dados
                 conexao.Open();
@@ -169,7 +119,9 @@ namespace ProjetoAgenda.Controller
 
                 //troca o valor dos @ pelas informações que serão cadastradas 
                 //essas informações vieram das funções
-                comando.Parameters.AddWithValue("@usuario", usuario);
+                comando.Parameters.AddWithValue("@nome", nome);
+                comando.Parameters.AddWithValue("@codigo", cod_categoria);
+                comando.Parameters.AddWithValue("@categoria", categoria);
 
                 //executando no banco de dados - o execute etc retorna a quantidade de linhas afetadas
                 int linhasAfetadas = comando.ExecuteNonQuery();
@@ -190,7 +142,7 @@ namespace ProjetoAgenda.Controller
             catch (Exception erro)
             {
                 //aparece quando da erro, a segunda aspas eh o titulo, o buttons cria um botão e o icon cria um icone
-                MessageBox.Show($"Erro ao apagar o usuario: {erro.Message}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show($"Erro ao alterar categoria : {erro.Message}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
             finally
@@ -200,15 +152,15 @@ namespace ProjetoAgenda.Controller
             }
         }
 
-        public bool AlterarSenha(string senha, string usuario)
+        public bool ExcluirContato(int cod_contato)
         {
             MySqlConnection conexao = null;
             try
             {
-                conexao = ConexaoDB.CriarConexao();
+                conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
 
                 //montando o select que retorna todas as categorias
-                string sql = @"update tbusuarios set senha = (@senha) where usuario = (@usuario);";
+                string sql = @"delete from tbcontatos where cod_contato = (@codigo_categoria);";
 
                 //abri a conexao com o banco de dados
                 conexao.Open();
@@ -218,8 +170,7 @@ namespace ProjetoAgenda.Controller
 
                 //troca o valor dos @ pelas informações que serão cadastradas 
                 //essas informações vieram das funções
-                comando.Parameters.AddWithValue("@senha", senha);
-                comando.Parameters.AddWithValue("@usuario", usuario);
+                comando.Parameters.AddWithValue("@codigo_categoria", cod_contato);
 
                 //executando no banco de dados - o execute etc retorna a quantidade de linhas afetadas
                 int linhasAfetadas = comando.ExecuteNonQuery();
@@ -240,7 +191,7 @@ namespace ProjetoAgenda.Controller
             catch (Exception erro)
             {
                 //aparece quando da erro, a segunda aspas eh o titulo, o buttons cria um botão e o icon cria um icone
-                MessageBox.Show($"Erro ao alterar senha : {erro.Message}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show($"Erro ao apagar categoria: {erro.Message}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
             finally
@@ -249,7 +200,5 @@ namespace ProjetoAgenda.Controller
                 conexao.Close();
             }
         }
-
-
     }
 }
