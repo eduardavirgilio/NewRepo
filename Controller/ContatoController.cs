@@ -12,7 +12,7 @@ namespace ProjetoAgenda.Controller
 {
     internal class ContatoController
     {
-        public bool AddContato(string nome, string categoria)
+        public bool AddContato(string nome, string categoria, string telefone)
         {
             MySqlConnection conexao = null;
             try
@@ -21,7 +21,7 @@ namespace ProjetoAgenda.Controller
                 conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
 
                 //oq ele vai executar do sql
-                string sql = $@"INSERT INTO tbcontatos (nome, categoria) VALUES (@nome, @categoria);";
+                string sql = $@"INSERT INTO tbcontatos (nome, categoria,telefone) VALUES (@nome, @categoria, @telefone);";
 
 
                 //abri a conexao com o banco de dados
@@ -34,6 +34,7 @@ namespace ProjetoAgenda.Controller
                 //essas informações vieram das funções
                 comando.Parameters.AddWithValue("@nome", nome);
                 comando.Parameters.AddWithValue("@categoria", categoria);
+                comando.Parameters.AddWithValue("@telefone", telefone);
 
                 //executando no banco de dados - o execute etc retorna a quantidade de linhas afetadas
                 int linhasAfetadas = comando.ExecuteNonQuery();
@@ -72,7 +73,7 @@ namespace ProjetoAgenda.Controller
                 conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
 
                 //montando o select que retorna todas as categorias
-                string sql = @"select cod_contato, nome, categoria, usuario from tbcontatos where usuario = User();";
+                string sql = @"select cod_contato, nome, categoria, telefone, usuario from tbcontatos where usuario = User();";
 
                 //abri a conexao
                 conexao.Open();
@@ -101,7 +102,7 @@ namespace ProjetoAgenda.Controller
             }
         }
 
-        public bool AlterarNome(string nome, string categoria, int cod_categoria)
+        public bool AlterarNome(string nome, string categoria, int cod_categoria, string telefone)
         {
             MySqlConnection conexao = null;
             try
@@ -109,7 +110,7 @@ namespace ProjetoAgenda.Controller
                 conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
 
                 //montando o select que retorna todas as categorias
-                string sql = @"UPDATE dbagenda.tbcontatos SET nome = (@nome), categoria = (@categoria) WHERE cod_contato = (@codigo);";
+                string sql = @"UPDATE dbagenda.tbcontatos SET nome = (@nome), categoria = (@categoria), telefone = (@telefone) WHERE cod_contato = (@codigo);";
 
                 //abri a conexao com o banco de dados
                 conexao.Open();

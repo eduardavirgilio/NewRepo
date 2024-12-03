@@ -52,6 +52,7 @@ namespace ProjetoAgenda.Views
             //pegando os dados do formulario
             string nome = txtNome.Text;
             string categoria = cmbCategoria.Text;
+            string telefone = txtTelefone.Text;
             string usuario = UserSession.usuario;
             string senha = UserSession.senha;
 
@@ -59,7 +60,7 @@ namespace ProjetoAgenda.Views
             ContatoController criaContato = new ContatoController();
 
             //inserindo o usuario
-            bool resultado = criaContato.AddContato(nome, categoria);
+            bool resultado = criaContato.AddContato(nome, categoria, telefone);
 
             if (resultado)
             {
@@ -89,22 +90,23 @@ namespace ProjetoAgenda.Views
             //pegando os dados do formulario
             string nome = txtNome.Text;
             string categoria = cmbCategoria.Text;
+            string telefone = txtTelefone.Text;
             int cod_contato = Convert.ToInt32(dgvContatos.SelectedRows[0].Cells[0].Value);
 
             //chamando a classe
             ContatoController alterarNome = new ContatoController();
 
             //inserindo o usuario
-            bool resultado = alterarNome.AlterarNome(nome, categoria, cod_contato);
+            bool resultado = alterarNome.AlterarNome(nome, categoria, cod_contato, telefone);
 
             if (resultado)
             {
-                MessageBox.Show("Nome e/ou categoria alterado com sucesso!");
+                MessageBox.Show("Nome e/ou categoria e/ou telefone alterado com sucesso!");
             }
 
             else
             {
-                MessageBox.Show("Não foi possivel alterar o nome e/ou categoria.");
+                MessageBox.Show("Não foi possivel alterar o nome e/ou categoria e/ou telefone.");
             }
 
             AtualizaDataGrid();
@@ -140,12 +142,22 @@ namespace ProjetoAgenda.Views
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void btnVoltar_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAgenda));
             groupBox1 = new GroupBox();
+            txtTelefone = new TextBox();
+            label3 = new Label();
             cmbCategoria = new ComboBox();
             btnAlterar = new Button();
             btnExcluir = new Button();
@@ -45,6 +47,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(txtTelefone);
+            groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(cmbCategoria);
             groupBox1.Controls.Add(btnAlterar);
             groupBox1.Controls.Add(btnExcluir);
@@ -54,15 +58,35 @@
             groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(358, 279);
+            groupBox1.Size = new Size(358, 318);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "adicionar contato";
+            groupBox1.Enter += groupBox1_Enter;
+            // 
+            // txtTelefone
+            // 
+            txtTelefone.Location = new Point(19, 148);
+            txtTelefone.Multiline = true;
+            txtTelefone.Name = "txtTelefone";
+            txtTelefone.Size = new Size(299, 37);
+            txtTelefone.TabIndex = 9;
+            txtTelefone.TextChanged += textBox1_TextChanged;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(19, 124);
+            label3.Name = "label3";
+            label3.Size = new Size(72, 21);
+            label3.TabIndex = 8;
+            label3.Text = "telefone";
             // 
             // cmbCategoria
             // 
             cmbCategoria.FormattingEnabled = true;
-            cmbCategoria.Location = new Point(19, 161);
+            cmbCategoria.Location = new Point(19, 238);
             cmbCategoria.Name = "cmbCategoria";
             cmbCategoria.Size = new Size(299, 23);
             cmbCategoria.TabIndex = 7;
@@ -72,7 +96,7 @@
             // 
             btnAlterar.BackColor = Color.LavenderBlush;
             btnAlterar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnAlterar.Location = new Point(134, 217);
+            btnAlterar.Location = new Point(115, 280);
             btnAlterar.Name = "btnAlterar";
             btnAlterar.Size = new Size(90, 32);
             btnAlterar.TabIndex = 6;
@@ -84,7 +108,7 @@
             // 
             btnExcluir.BackColor = Color.LavenderBlush;
             btnExcluir.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnExcluir.Location = new Point(244, 217);
+            btnExcluir.Location = new Point(228, 280);
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Size = new Size(90, 32);
             btnExcluir.TabIndex = 5;
@@ -96,7 +120,7 @@
             // 
             btnCadastrar.BackColor = Color.LavenderBlush;
             btnCadastrar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnCadastrar.Location = new Point(19, 217);
+            btnCadastrar.Location = new Point(8, 280);
             btnCadastrar.Name = "btnCadastrar";
             btnCadastrar.Size = new Size(90, 32);
             btnCadastrar.TabIndex = 4;
@@ -108,7 +132,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(19, 117);
+            label2.Location = new Point(19, 214);
             label2.Name = "label2";
             label2.Size = new Size(79, 21);
             label2.TabIndex = 2;
@@ -186,5 +210,7 @@
         private ComboBox cmbCategoria;
         private DataGridView dgvContatos;
         private Button btnVoltar;
+        private TextBox txtTelefone;
+        private Label label3;
     }
 }
