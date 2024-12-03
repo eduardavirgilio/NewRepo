@@ -68,35 +68,38 @@
             // 
             // btnAlterar
             // 
+            btnAlterar.BackColor = Color.LavenderBlush;
             btnAlterar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnAlterar.Location = new Point(134, 217);
             btnAlterar.Name = "btnAlterar";
             btnAlterar.Size = new Size(90, 32);
             btnAlterar.TabIndex = 6;
             btnAlterar.Text = "alterar";
-            btnAlterar.UseVisualStyleBackColor = true;
+            btnAlterar.UseVisualStyleBackColor = false;
             btnAlterar.Click += btnAlterar_Click;
             // 
             // btnExcluir
             // 
+            btnExcluir.BackColor = Color.LavenderBlush;
             btnExcluir.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnExcluir.Location = new Point(244, 217);
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Size = new Size(90, 32);
             btnExcluir.TabIndex = 5;
             btnExcluir.Text = "excluir";
-            btnExcluir.UseVisualStyleBackColor = true;
+            btnExcluir.UseVisualStyleBackColor = false;
             btnExcluir.Click += btnExcluir_Click;
             // 
             // btnCadastrar
             // 
+            btnCadastrar.BackColor = Color.LavenderBlush;
             btnCadastrar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnCadastrar.Location = new Point(19, 217);
             btnCadastrar.Name = "btnCadastrar";
             btnCadastrar.Size = new Size(90, 32);
             btnCadastrar.TabIndex = 4;
             btnCadastrar.Text = "cadastrar";
-            btnCadastrar.UseVisualStyleBackColor = true;
+            btnCadastrar.UseVisualStyleBackColor = false;
             btnCadastrar.Click += btnCadastrar_Click_1;
             // 
             // label2
@@ -134,7 +137,7 @@
             dgvContatos.Location = new Point(392, 23);
             dgvContatos.Name = "dgvContatos";
             dgvContatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvContatos.Size = new Size(405, 268);
+            dgvContatos.Size = new Size(355, 268);
             dgvContatos.TabIndex = 1;
             dgvContatos.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -143,7 +146,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MistyRose;
-            ClientSize = new Size(834, 323);
+            ClientSize = new Size(779, 323);
             Controls.Add(dgvContatos);
             Controls.Add(groupBox1);
             Name = "frmAgenda";

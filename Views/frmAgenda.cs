@@ -52,6 +52,8 @@ namespace ProjetoAgenda.Views
             //pegando os dados do formulario
             string nome = txtNome.Text;
             string categoria = cmbCategoria.Text;
+            string usuario = UserSession.usuario;
+            string senha = UserSession.senha;
 
             //chamando a classe
             ContatoController criaContato = new ContatoController();

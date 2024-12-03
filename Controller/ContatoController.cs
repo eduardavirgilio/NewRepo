@@ -14,10 +14,11 @@ namespace ProjetoAgenda.Controller
     {
         public bool AddContato(string nome, string categoria)
         {
+            MySqlConnection conexao = null;
             try
             {
                 //conecta no banco de dados
-                MySqlConnection conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
+                conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
 
                 //oq ele vai executar do sql
                 string sql = $@"INSERT INTO tbcontatos (nome, categoria) VALUES (@nome, @categoria);";
@@ -71,18 +72,13 @@ namespace ProjetoAgenda.Controller
                 conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
 
                 //montando o select que retorna todas as categorias
-                string sql = @"select cod_contato, nome, categoria from tbcontatos";
+                string sql = @"select cod_contato, nome, categoria, usuario from tbcontatos where usuario = User();";
 
                 //abri a conexao
                 conexao.Open();
 
                 //criei um adaptador
                 MySqlDataAdapter adaptador = new MySqlDataAdapter(sql, conexao);
-
-                //MySqlCommand comando = new MySqlCommand(sql, conexao);
-
-
-                //comando.Parameters.AddWithValue("@usuario", $"{UserSession.usuario}@%");
 
                 //tabela em branco
                 DataTable tabela = new DataTable();

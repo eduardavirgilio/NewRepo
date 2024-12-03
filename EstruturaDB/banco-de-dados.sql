@@ -1,19 +1,38 @@
+-- criando a database
 create database dbagenda;
 
+-- usando a database
 use dbagenda;
 
+-- criando a tabela de usuarios
 create table tbusuarios(
 nome VARCHAR(80) NOT NULL,
 usuario VARCHAR(20) NOT NULL primary key,
 senha VARCHAR(20) NOT NULL);
 
-
+-- criando a tabela de categorias
 create table tbcategorias(
 	categorias VARCHAR(40) NOT NULL,
 	cod_categoria INT AUTO_INCREMENT primary key,
     usuario varchar (20) 
     );
 
+-- criando a tabela de contatos
+create table tbcontatos(
+	cod_contato INT AUTO_INCREMENT primary key,
+	nome VARCHAR(80) NOT NULL,
+    categoria VARCHAR(100) NOT NULL
+    );
+
+-- criando a tabela do log
+create table tblog(
+	cod_log INT AUTO_INCREMENT primary key,
+	usuario VARCHAR(80) NOT NULL,
+    ultima_alteracao DATETIME,
+    descricao VARCHAR(300) NOT NULL
+    );
+
+-- criando o trigger para inserir categoria e marcar quem foi o usuario que criou ela
 delimiter $$
 create trigger trinsertcategoria
 	before
@@ -21,11 +40,12 @@ create trigger trinsertcategoria
 	on tbcategorias
 	for each row
 begin 
-	set new.usuario = CURRENT_USER();
+	set new.usuario = USER();
 end;tbusuarios
 
 $$
 
+-- criando a trigger para excluir uma categoria
 delimiter ;
 
 delimiter $$
@@ -51,6 +71,8 @@ $$
 
 delimiter ;
 
+-- criando a trigger para inserir a categoria
+
 delimiter $$
 create trigger trinsertcategoria
 	before
@@ -65,7 +87,7 @@ $$
 
 delimiter ;
 
--- trigger de update
+-- trigger para atualizar o nome da categoria
 delimiter $$
 create trigger trlogcategoriauupdate
 	after
@@ -88,15 +110,6 @@ end;
 $$
 
 delimiter ;
-
--- tabela do log
-
-create table tblog(
-	cod_log INT AUTO_INCREMENT primary key,
-	usuario VARCHAR(80) NOT NULL,
-    ultima_alteracao DATETIME,
-    descricao VARCHAR(300) NOT NULL
-    );
 
 -- trigger para inserir categorias
 delimiter $$
@@ -121,12 +134,6 @@ end;
 $$
 
 delimiter ;
-
-create table tbcontatos(
-	cod_contato INT AUTO_INCREMENT primary key,
-	nome VARCHAR(80) NOT NULL,
-    categoria VARCHAR(100) NOT NULL
-    );
 
 -- trigger pra add contato
 
@@ -170,7 +177,7 @@ begin
 	values
     (USER(),
     CURRENT_TIMESTAMP(),
-    CONCAT('O contato ', OLD.nome, ' foi alterado para ', NEW.nome));
+    CONCAT('O contato ', OLD.nome, ' foi alterado'));
     
 end;
 
@@ -202,6 +209,8 @@ end;
 $$
 
 delimiter ;
+
+-- testes
 
 select * from tblog;
 

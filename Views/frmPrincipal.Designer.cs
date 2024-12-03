@@ -106,7 +106,7 @@
             // 
             lblBemvindo.AutoSize = true;
             lblBemvindo.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblBemvindo.Location = new Point(327, 41);
+            lblBemvindo.Location = new Point(12, 35);
             lblBemvindo.Name = "lblBemvindo";
             lblBemvindo.Size = new Size(221, 25);
             lblBemvindo.TabIndex = 1;

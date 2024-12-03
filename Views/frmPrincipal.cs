@@ -57,7 +57,7 @@ namespace ProjetoAgenda.Views
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-            lblBemvindo.Text = $"Seja bem vindo {UserSession.nome}";
+            lblBemvindo.Text = $"Seja bem vindo(a), {UserSession.nome}!";
         }
     }
 }
