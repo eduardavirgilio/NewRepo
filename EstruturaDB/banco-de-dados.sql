@@ -228,7 +228,7 @@ delimiter ;
 
 select * from tblog;
 
-select * from tbcontatos;
+select * from tbusuarios;
 
 select * from tbcategorias;
 
@@ -238,4 +238,4 @@ SET `nome` = 'smt', `categoria` = 'socoror' WHERE (`cod_contato` = '2');
 select * from mySql.user;
 
 select cod_categoria AS 'Código', categorias AS 'Categoria'
-from tbcategorias;
+from tblog;
