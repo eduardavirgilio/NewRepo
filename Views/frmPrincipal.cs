@@ -59,5 +59,13 @@ namespace ProjetoAgenda.Views
         {
             lblBemvindo.Text = $"Seja bem vindo(a), {UserSession.nome}!";
         }
+
+        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLogin formularioLogin = new frmLogin();
+            formularioLogin.ShowDialog();
+
+
+        }
     }
 }

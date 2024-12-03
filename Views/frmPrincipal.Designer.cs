@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             menuStrip1 = new MenuStrip();
             arquivoToolStripMenuItem = new ToolStripMenuItem();
             sairToolStripMenuItem = new ToolStripMenuItem();
@@ -37,6 +38,7 @@
             usuáriosToolStripMenuItem = new ToolStripMenuItem();
             agendaToolStripMenuItem = new ToolStripMenuItem();
             lblBemvindo = new Label();
+            loginToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -54,7 +56,7 @@
             // 
             // arquivoToolStripMenuItem
             // 
-            arquivoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { sairToolStripMenuItem });
+            arquivoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { sairToolStripMenuItem, loginToolStripMenuItem });
             arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
             arquivoToolStripMenuItem.Size = new Size(61, 22);
             arquivoToolStripMenuItem.Text = "&Arquivo";
@@ -62,7 +64,7 @@
             // sairToolStripMenuItem
             // 
             sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            sairToolStripMenuItem.Size = new Size(93, 22);
+            sairToolStripMenuItem.Size = new Size(180, 22);
             sairToolStripMenuItem.Text = "&Sair";
             sairToolStripMenuItem.Click += sairToolStripMenuItem_Click;
             // 
@@ -113,6 +115,13 @@
             lblBemvindo.Text = "Seja bem vinda(o) nome!";
             lblBemvindo.Click += label1_Click;
             // 
+            // loginToolStripMenuItem
+            // 
+            loginToolStripMenuItem.Name = "loginToolStripMenuItem";
+            loginToolStripMenuItem.Size = new Size(180, 22);
+            loginToolStripMenuItem.Text = "&Login";
+            loginToolStripMenuItem.Click += loginToolStripMenuItem_Click;
+            // 
             // frmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -121,6 +130,7 @@
             ClientSize = new Size(560, 270);
             Controls.Add(lblBemvindo);
             Controls.Add(menuStrip1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
             Margin = new Padding(2);
             Name = "frmPrincipal";
@@ -144,5 +154,6 @@
         private ToolStripMenuItem usuáriosToolStripMenuItem;
         private Label lblBemvindo;
         private ToolStripMenuItem agendaToolStripMenuItem;
+        private ToolStripMenuItem loginToolStripMenuItem;
     }
 }

@@ -137,5 +137,15 @@ namespace ProjetoAgenda.Views
 
             AtualizaDataGrid();
         }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void btnVoltar_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

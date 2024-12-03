@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCategorias));
             label1 = new Label();
             txtNome = new TextBox();
             btnCadastrar = new Button();
@@ -65,9 +66,9 @@
             // 
             btnCadastrar.BackColor = Color.Lavender;
             btnCadastrar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCadastrar.Location = new Point(233, 116);
+            btnCadastrar.Location = new Point(202, 116);
             btnCadastrar.Name = "btnCadastrar";
-            btnCadastrar.Size = new Size(137, 31);
+            btnCadastrar.Size = new Size(168, 31);
             btnCadastrar.TabIndex = 2;
             btnCadastrar.Text = "cadastrar";
             btnCadastrar.UseVisualStyleBackColor = false;
@@ -89,7 +90,7 @@
             // 
             dgvCategoria.BackgroundColor = Color.Pink;
             dgvCategoria.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCategoria.Location = new Point(23, 170);
+            dgvCategoria.Location = new Point(23, 198);
             dgvCategoria.Name = "dgvCategoria";
             dgvCategoria.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvCategoria.Size = new Size(347, 233);
@@ -100,9 +101,9 @@
             // 
             btnExcluir.BackColor = Color.White;
             btnExcluir.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnExcluir.Location = new Point(23, 437);
+            btnExcluir.Location = new Point(23, 153);
             btnExcluir.Name = "btnExcluir";
-            btnExcluir.Size = new Size(103, 31);
+            btnExcluir.Size = new Size(347, 31);
             btnExcluir.TabIndex = 6;
             btnExcluir.Text = "excluir";
             btnExcluir.UseVisualStyleBackColor = false;
@@ -114,7 +115,7 @@
             btnAlterar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAlterar.Location = new Point(23, 116);
             btnAlterar.Name = "btnAlterar";
-            btnAlterar.Size = new Size(137, 31);
+            btnAlterar.Size = new Size(173, 31);
             btnAlterar.TabIndex = 7;
             btnAlterar.Text = "alterar";
             btnAlterar.UseVisualStyleBackColor = false;
@@ -133,10 +134,11 @@
             Controls.Add(btnCadastrar);
             Controls.Add(txtNome);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(2);
             Name = "frmCategorias";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "frmCategorias";
+            Text = "Categorias";
             Load += frmCategorias_Load;
             ((System.ComponentModel.ISupportInitialize)dgvCategoria).EndInit();
             ResumeLayout(false);

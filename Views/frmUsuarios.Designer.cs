@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUsuarios));
             dgvUsuario = new DataGridView();
             label1 = new Label();
             btnExcluir = new Button();
@@ -129,9 +130,10 @@
             Controls.Add(btnExcluir);
             Controls.Add(label1);
             Controls.Add(dgvUsuario);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmUsuarios";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "frmUsuarios";
+            Text = "Usuarios";
             Load += frmUsuarios_Load_1;
             ((System.ComponentModel.ISupportInitialize)dgvUsuario).EndInit();
             gbSenha.ResumeLayout(false);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAgenda));
             groupBox1 = new GroupBox();
             cmbCategoria = new ComboBox();
             btnAlterar = new Button();
@@ -37,6 +38,7 @@
             txtNome = new TextBox();
             label1 = new Label();
             dgvContatos = new DataGridView();
+            btnVoltar = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvContatos).BeginInit();
             SuspendLayout();
@@ -141,16 +143,30 @@
             dgvContatos.TabIndex = 1;
             dgvContatos.CellContentClick += dataGridView1_CellContentClick;
             // 
+            // btnVoltar
+            // 
+            btnVoltar.BackColor = Color.LavenderBlush;
+            btnVoltar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnVoltar.Location = new Point(647, 299);
+            btnVoltar.Name = "btnVoltar";
+            btnVoltar.Size = new Size(100, 31);
+            btnVoltar.TabIndex = 8;
+            btnVoltar.Text = "fechar";
+            btnVoltar.UseVisualStyleBackColor = false;
+            btnVoltar.Click += btnVoltar_Click_1;
+            // 
             // frmAgenda
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MistyRose;
-            ClientSize = new Size(779, 323);
+            ClientSize = new Size(763, 342);
+            Controls.Add(btnVoltar);
             Controls.Add(dgvContatos);
             Controls.Add(groupBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmAgenda";
-            Text = "frmAgenda";
+            Text = "Contatos";
             Load += frmAgenda_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -169,5 +185,6 @@
         private Button btnExcluir;
         private ComboBox cmbCategoria;
         private DataGridView dgvContatos;
+        private Button btnVoltar;
     }
 }
