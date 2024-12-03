@@ -123,6 +123,7 @@ namespace ProjetoAgenda.Controller
                 comando.Parameters.AddWithValue("@nome", nome);
                 comando.Parameters.AddWithValue("@codigo", cod_categoria);
                 comando.Parameters.AddWithValue("@categoria", categoria);
+                comando.Parameters.AddWithValue("@telefone", telefone);
 
                 //executando no banco de dados - o execute etc retorna a quantidade de linhas afetadas
                 int linhasAfetadas = comando.ExecuteNonQuery();
