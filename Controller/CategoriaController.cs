@@ -115,7 +115,7 @@ namespace ProjetoAgenda.Controller
         {
             MySqlConnection conexao = null;
             try {
-                conexao = ConexaoDB.CriarConexao();
+                conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
 
                 //montando o select que retorna todas as categorias
                 string sql = @"delete from tbcategorias where cod_categoria = (@codigo_categoria);";
@@ -164,7 +164,7 @@ namespace ProjetoAgenda.Controller
             MySqlConnection conexao = null;
             try
             {
-                conexao = ConexaoDB.CriarConexao();
+                conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
 
                 //montando o select que retorna todas as categorias
                 string sql = @"update tbcategorias set categorias = (@nome) where cod_categoria = (@codigo);";

@@ -55,7 +55,7 @@ create trigger trinsertcontato
 	for each row
 begin 
 	set new.usuario = USER();
-end;tbusuarios
+end;
 
 $$
 
@@ -154,7 +154,7 @@ delimiter ;
 delimiter $$
 create trigger trlogaddcontato
 	after
-	update
+	insert
 	on tbcontatos
 	for each row
 begin 
@@ -204,7 +204,7 @@ delimiter ;
 delimiter $$
 create trigger trlogcontatodelete
 	after
-	update
+	delete
 	on tbcontatos
 	for each row
 begin 
@@ -229,7 +229,6 @@ delimiter ;
 select * from tblog;
 
 select * from tbcontatos;
-
 
 select * from tbcategorias;
 
