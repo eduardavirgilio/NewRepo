@@ -6,7 +6,12 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>icone-de-agenda.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="icone-de-agenda.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MySql.Data" Version="9.0.0" />
