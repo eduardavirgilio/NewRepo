@@ -21,7 +21,8 @@ create table tbcategorias(
 create table tbcontatos(
 	cod_contato INT AUTO_INCREMENT primary key,
 	nome VARCHAR(80) NOT NULL,
-    categoria VARCHAR(100) NOT NULL
+    categoria VARCHAR(100) NOT NULL,
+    usuario varchar (20)
     );
 
 -- criando a tabela do log
@@ -38,6 +39,19 @@ create trigger trinsertcategoria
 	before
 	insert
 	on tbcategorias
+	for each row
+begin 
+	set new.usuario = USER();
+end;tbusuarios
+
+$$
+
+-- criando o trigger para inserir o contato e marcar quem foi o usuario que criou ele
+delimiter $$
+create trigger trinsertcontato
+	before
+	insert
+	on tbcontatos
 	for each row
 begin 
 	set new.usuario = USER();
@@ -215,6 +229,9 @@ delimiter ;
 select * from tblog;
 
 select * from tbcontatos;
+
+
+select * from tbcategorias;
 
 UPDATE `dbagenda`.`tbcontatos` 
 SET `nome` = 'smt', `categoria` = 'socoror' WHERE (`cod_contato` = '2');
